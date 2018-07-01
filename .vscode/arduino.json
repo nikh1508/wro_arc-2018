@@ -1,0 +1,6 @@
+{
+    "sketch": "wro_tetris-2018.ino",
+    "board": "arduino:avr:mega",
+    "configuration": "cpu=atmega2560",
+    "port": "/dev/ttyACM0"
+}
