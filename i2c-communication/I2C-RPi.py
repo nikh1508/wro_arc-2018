@@ -12,18 +12,21 @@ bus = smbus2.SMBus(1)
 SLAVE_ADDR = 0x07              ##Set the Address Here.
 
 def sendData(ch, counts, byte = 2):
-    bus.write_byte(SLAVE_ADDR, byte + 3)
-    counts_byte = []
-    for i in range(byte):
-        counts_byte.append(0b11111111 & counts)
-        counts = counts>>8
-    bus.write_byte(SLAVE_ADDR, ord(ch))
-    for i in reversed(counts_byte):
-        bus.write_byte(SLAVE_ADDR, i)
+    try:
+        bus.write_byte(SLAVE_ADDR, byte + 3)
+        counts_byte = []
+        for i in range(byte):
+            counts_byte.append(0b11111111 & counts)
+            counts = counts>>8
+        bus.write_byte(SLAVE_ADDR, ord(ch))
+        for i in reversed(counts_byte):
+            bus.write_byte(SLAVE_ADDR, i)
+    except:
+        print("Error occured while sending data. Pls check the data and slave address")
     return -1
 
 
-def readNumber(byte=4):
+def readString(byte=4):
     try:
         print("Requesting %d Bytes from Arduino"%byte)
         number = bus.read_i2c_block_data(SLAVE_ADDR, 0, byte)
@@ -47,7 +50,7 @@ while True:
     sendData (ch, num, totalBytes)
     ## Recv Data from Arduino
     time.sleep(.01)
-    print(readNumber())
+    print(readString())
 
 #End
 
