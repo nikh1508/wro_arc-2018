@@ -1,6 +1,7 @@
 #define BLYNK_PRINT Serial
-#define ARM_DLY 10000                  //delay in micro-seconds
-#define GRIPPER_DLY 5000
+#define serial_debug true
+#define ARM_DLY 5000                  //delay in micro-seconds
+#define GRIPPER_DLY 3000
 #define ARM_INIT 900
 #define GRIPPER_INIT 1500
 
@@ -25,20 +26,23 @@ void changeAngle() {
   static int gripper_last_us = micros();
 
   if (gripper_cur != gripper_last)
-    if ((micros() - arm_last_us) > ARM_DLY) {
+    if ((micros() - gripper_last_us) > GRIPPER_DLY) {
+      gripper_last_us = micros();
       (gripper_cur > gripper_last) ? gripper_last++ : gripper_last--;
       gripper.writeMicroseconds(constrain(gripper_last, 750, 2250));
     }
   if (arm_cur != arm_last)
     if ((micros() - arm_last_us) > ARM_DLY) {
+      arm_last_us = micros();
       (arm_cur > arm_last) ? arm_last++ : arm_last--;
       arm.writeMicroseconds(constrain(arm_last, 900, 2100));
     }
 }
 
 void setup() {
-  Serial.begin(115200);
-  Blynk.begin(auth, ssid, pass, IPAddress(192, 168, 0, 105), 8080);
+  if (serial_debug)
+    Serial.begin(115200);
+  Blynk.begin(auth, ssid, pass, IPAddress(192, 168, 43, 73), 8080);
   gripper.attach(D3, 750, 2250);
   arm.attach(D4, 900, 2100);
   gripper.writeMicroseconds(1500);
