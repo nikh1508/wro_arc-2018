@@ -21,8 +21,8 @@
 //  }
 //}
 /*
-///FIRST TEST
-void startSequence() {
+  ///FIRST TEST
+  void startSequence() {
   long start_time = millis();
   ///STEP-1
   arm_cur = 1650;
@@ -62,7 +62,7 @@ void startSequence() {
   }
   }
 */
-  //THIRD TEST
+//THIRD TEST
 //void startSequence() {
 //  startStep(1920, 1935, 0);
 //  startStep(1750, -1, 0);
@@ -72,4 +72,26 @@ void startSequence() {
 //  startStep(1000, -1, 0);
 //}
 
+//FOURTH TEST
+//void startSequence(bool blue = false) {
+//  fuse(1350, 1979, 700);
+//  startStep(1290, 1500, -1, -1);
+//  if (blue)
+//    fuse(1270, 1600, 600);//blue
+//  else
+//    fuse(1310, 1600, 700);
+//  while (!Serial.available()); char ch = Serial.read();
+//  //delay(1200);
+//  startStep(1000, 1200, 1300, 1000 );
+//  startStep(900, 1500, 1200, 1500 );
+//}
 
+//FIFTH TEST
+void startSequence() {
+  fuse(1450, 2210, 400);
+  startStep(1300, 2220, -1, -1);
+  fuse(1370, 1900, 600);
+  startStep(900, 1500, 1200, 1500 );
+  fuse(1600, 1100, 700);
+  fuse(1600, 1600, 500);
+}

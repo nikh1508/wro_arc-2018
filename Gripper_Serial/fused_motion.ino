@@ -39,4 +39,6 @@ void fuse(int arm, int gripper, int time) {
         Serial.println("ARM :: " + String(arm_last) + "\t GRIPPER :: " + String(gripper_last));
     }
   }
+  gripper_cur = gripper_last;
+  arm_cur = arm_last;
 }

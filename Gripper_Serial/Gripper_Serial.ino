@@ -1,7 +1,7 @@
 #define serial_debug true
 //#define ARM_DLY 2500//3000            //delay in micro-seconds
 //#define GRIPPER_DLY 1200             //last -1200
-#define ARM_INIT 1500
+#define ARM_INIT 1700
 #define GRIPPER_INIT 1500
 
 #include <Servo.h>
@@ -15,6 +15,8 @@ int arm_last = ARM_INIT;          //Initial values of servos in micro-seconds
 int gripper_last = GRIPPER_INIT;
 int GRIPPER_DLY = 1200;
 int ARM_DLY = 2500;
+
+//void startSequence(bool blue = false);
 
 void changeAngle() {
   static long arm_last_us = micros();
@@ -37,16 +39,11 @@ void changeAngle() {
 void setup() {
   if (serial_debug)
     Serial.begin(115200);
-  gripper.attach(7, 750, 2250);
-  arm.attach(8, 750, 2250);
+  gripper.attach(8, 750, 2250);
+  arm.attach(7, 750, 2250);
   gripper.writeMicroseconds(GRIPPER_INIT);
   arm.writeMicroseconds(ARM_INIT);
   Serial.println("Started Servo Test.");
-  delay(1000);
-  fuse(1500, 1979, 1000);
-  delay(1000);
-  fuse(2100, 1200, 3000);
-  while(1);
 }
 //int steps[] = {4000, 800, 500, 800, 1500, 2000}; //FIRST
 //int steps[] = {5500, 1000, 800};  //SECOND
@@ -80,7 +77,8 @@ void reset() {
   }
 }
 void loop() {
-  if (Serial.available()) {
+  /*
+    if (Serial.available()) {
     char ch = Serial.read();
 
     if (ch == 'a') {
@@ -100,7 +98,9 @@ void loop() {
     }
     else if (ch == '1') {
       Serial.println("Step-1");
-      startStep(-1, -1, 1979, 500 );
+    //      startStep(-1, -1, 1979, 500 );
+      fuse(1450, 2210, 900);
+      startStep(1300, 2220, -1, -1);
     }
     else if (ch == '2') {
       Serial.println("Step-2");
@@ -108,36 +108,39 @@ void loop() {
     }
     else if (ch == '3') {
       Serial.println("Step-3");
-      startStep(1310, 1200, 1600, 300);
+      //startStep(1310, 1200, 1600, 300);
+    //      fuse(1270, 1600, 600);//blue
+      fuse(1370, 1900, 600);//non-blue
     }
     else if (ch == '4') {
       Serial.println("Step-4");
-      startStep(1000, 1200, 1300, 1000 );
+//      startStep(1000, 1200, 1300, 1000 );
+    fuse(1000, 1500, 700);
     }
     else if (ch == '5') {
       Serial.println("Step-5");
-      startStep(900, -1, 1200, -1 );
+      startStep(900, 1500, 1200, 1500 );
     }
     else if (ch == '6') {
       Serial.println("Step-6");
-      startStep(1600, 500, 1100, 300 );
+//      startStep(1600, 500, 1100, 300 );
+        fuse(1600, 1100, 700);
+        fuse(1600, 1600, 500);
     }
+    }
+    changeAngle();
+    */
+  //-----------------------------------------------------------------------------------------------
 
-    //    else if (ch == 'd') {
-    //      arm.detach();
-    //      arm.write(90);
-    //    }
-    //    else if (ch == 'a') {
-    //      arm.attach(33, 900, 2100);
-    //    }
+  if (Serial.available()) {
+    char ch = Serial.read();
+    if (ch == 's')
+      startSequence();
+    else if (ch == 'b')
+      startSequence();
+    else
+      reset();
   }
-  //    if (Serial.available()) {
-  //      char ch = Serial.read();
-  //      if (ch == 's')
-  //        startSequence();
-  //      else
-  //        reset();
-  //    }
-  changeAngle();
+
 }
 
