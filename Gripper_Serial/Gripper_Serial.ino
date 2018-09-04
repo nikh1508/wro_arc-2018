@@ -39,8 +39,8 @@ void changeAngle() {
 void setup() {
   if (serial_debug)
     Serial.begin(115200);
-  gripper.attach(8, 750, 2250);
-  arm.attach(7, 750, 2250);
+  gripper.attach(40, 750, 2250);
+  arm.attach(42, 750, 2250);
   gripper.writeMicroseconds(GRIPPER_INIT);
   arm.writeMicroseconds(ARM_INIT);
   Serial.println("Started Servo Test.");
@@ -77,9 +77,12 @@ void reset() {
   }
 }
 void loop() {
-  /*
-    if (Serial.available()) {
+
+  if (Serial.available()) {
     char ch = Serial.read();
+
+    if (ch == 's')
+      startSequence();
 
     if (ch == 'a') {
       while (!Serial.available());
@@ -96,11 +99,19 @@ void loop() {
       reset();
       Serial.println("reset");
     }
+    else if (ch == 'q') {
+      int x = Serial.parseInt();
+      Serial.print("ARM :: ");
+      Serial.println(x);
+      int arm_change = x - arm_cur;
+      //      Serial.println(arm_change);
+      fuse(x, 0.26 * float(arm_change) + gripper_cur, ((abs(arm_change)) / 100) * 250);
+    }
     else if (ch == '1') {
       Serial.println("Step-1");
-    //      startStep(-1, -1, 1979, 500 );
-      fuse(1450, 2210, 900);
-      startStep(1300, 2220, -1, -1);
+      //      startStep(-1, -1, 1979, 500 );
+      fuse(1500, 2210, 900);
+      startStep(1300, 2210, -1, -1);
     }
     else if (ch == '2') {
       Serial.println("Step-2");
@@ -109,13 +120,13 @@ void loop() {
     else if (ch == '3') {
       Serial.println("Step-3");
       //startStep(1310, 1200, 1600, 300);
-    //      fuse(1270, 1600, 600);//blue
-      fuse(1370, 1900, 600);//non-blue
+      //      fuse(1270, 1600, 600);//blue
+      fuse(1330, 1900, 600);//non-blue
     }
     else if (ch == '4') {
       Serial.println("Step-4");
-//      startStep(1000, 1200, 1300, 1000 );
-    fuse(1000, 1500, 700);
+      //      startStep(1000, 1200, 1300, 1000 );
+      fuse(1000, 1500, 700);
     }
     else if (ch == '5') {
       Serial.println("Step-5");
@@ -123,24 +134,24 @@ void loop() {
     }
     else if (ch == '6') {
       Serial.println("Step-6");
-//      startStep(1600, 500, 1100, 300 );
-        fuse(1600, 1100, 700);
-        fuse(1600, 1600, 500);
+      //      startStep(1600, 500, 1100, 300 );
+      fuse(1600, 1100, 700);
+      fuse(1600, 1665, 500);
     }
-    }
-    changeAngle();
-    */
+  }
+  changeAngle();
+
   //-----------------------------------------------------------------------------------------------
 
-  if (Serial.available()) {
-    char ch = Serial.read();
-    if (ch == 's')
-      startSequence();
-    else if (ch == 'b')
-      startSequence();
-    else
-      reset();
-  }
+  //  if (Serial.available()) {
+  //    char ch = Serial.read();
+  //    if (ch == 's')
+  //      startSequence();
+  //    else if (ch == 'b')
+  //      startSequence();
+  //    else
+  //      reset();
+  //  }
 
 }
 

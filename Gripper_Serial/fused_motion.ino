@@ -1,6 +1,8 @@
 #define fused_motion_debug false
 
 void fuse(int arm, int gripper, int time) {
+//  Serial.println(gripper);
+//  Serial.println(time);
   float gripper_diff = abs(gripper_last - gripper);
   float arm_diff = abs(arm_last - arm);
   float arm_new = arm_last, gripper_new = gripper_last;
