@@ -137,8 +137,8 @@ my_block=[]
 
 b=Block()
 b.setname("Blue")
-b.setHSVmin(85,33,0)
-b.setHSVmax(103,182,168)
+b.setHSVmin(85,76,49)
+b.setHSVmax(103,157,140)
 b.setcolor(255,0,0)
 
 y=Block()
@@ -149,8 +149,8 @@ y.setcolor(0,255,255)
 
 d=Block()
 d.setname("DarkBlue")
-d.setHSVmin(107,33,0)
-d.setHSVmax(130,182,168)
+d.setHSVmin(107,85,47)
+d.setHSVmax(130,158,149)
 d.setcolor(139,0,0)
 
 r=Block()
@@ -189,7 +189,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(cnl,GPIO.IN,GPIO.PUD_DOWN)
 
 arena_block = [-1,-1,-1,-1,-1,-1]
-current_working_Block = 0;
+current_working_Block = 1;
 
 
 #------------------------------------------------------------------
@@ -254,7 +254,7 @@ def track(index):
     hsvmax=np.array(my_block[index].getHSVmax())
     hsv=cv2.inRange(hsv, hsvmin, hsvmax)
     hsv=cv2.resize(hsv,dim,interpolation = cv2.INTER_AREA)
-    #cv2.imshow('hsv',hsv)
+    cv2.imshow('hsv',hsv)
     
     kernel = np.ones((5,5),np.uint8)
     hsv = cv2.erode(hsv,kernel,iterations = 1)
@@ -288,9 +288,3 @@ def find_Block():
     print 'Not Found Any '
     return seq_index
 
-
-def Send_data(ch,num):
-    #sending data's to Arduino I2C 
-    pass
-
-    
