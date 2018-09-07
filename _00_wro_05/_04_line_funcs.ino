@@ -1,7 +1,9 @@
 void input_line() {
   for (i = 0; i < 8; i++) {
     line_data1[i] = analogRead(line1[i]);
+    //    Serial.print(line_data1[i]);Serial.print(" ");
   }
+  //  Serial.print("\n");
   //
   for (i = 0; i < 8; i++) {
     line_data1[i] >= compare_1[i] ? dline_data_1[i] = 1 : dline_data_1[i] = 0;

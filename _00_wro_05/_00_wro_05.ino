@@ -1,3 +1,20 @@
+#include <Servo.h>
+#define ARM_INIT 1700
+#define GRIPPER_INIT 1500
+Servo gripper;
+Servo arm;
+Servo camera;
+/////
+int gripper_cur = GRIPPER_INIT , arm_cur = ARM_INIT;            //Current values of Servos in micro-seconds
+int arm_last = ARM_INIT;          //Initial values of servos in micro-seconds
+int gripper_last = GRIPPER_INIT;
+int GRIPPER_DLY = 1200;
+int ARM_DLY = 2500;
+#define fused_motion_debug false
+////
+int camera_pin = 48;
+int grip_pin = 40;
+int arm_pin = 42;
 #include<Wire.h>
 #define adr 0x29//0x28 or 0x29//bno
 #define adr_encoder_0 8//primary//forward and backward
@@ -7,8 +24,10 @@
 //////
 byte lsb_yaw;
 byte msb_yaw;
-double yaw_offset = 0;
-double yaw = 0;
+double yaw_offset = 0.0;
+double yaw = 0.0;
+double bno_off = 0.0;
+char last_rot='\0';
 ////////////
 ////////////
 struct motors {
@@ -75,7 +94,7 @@ double error = 0.0;
 double prev_error = 0.0;
 double kp = 3.0;
 double ki = 0.0;
-double kd = 3.0;
+double kd = 2.0;
 double pid = 0.0;
 /////////////////////////
 /////////////////////////
@@ -85,13 +104,15 @@ double desired_value = 0.0;
 double prev_output = 0.0;
 //////////
 int highspeed = 60;
-int lowspeed = 20;
+int lowspeed = 40;
 ////////////////////////
 ////////////////////////
 int i, j;
 char ch = '\0';
 int sqc = 1;
 int sqc_pin = 18;
+/////i2c data from pi////
+//int pi_data=0;
 ///////////
 ///////////
 byte encode[6];
@@ -106,3 +127,12 @@ bool L_bool = true;
 int pwm_l = 2;
 int a_l = 36;
 int b_l = 38;
+///////////
+///////////
+int status_m0a = 1;
+int status_m0b = 1;
+//
+int status_m2a = 1;
+int status_m2b = 1;
+//
+bool flag_motor = true;

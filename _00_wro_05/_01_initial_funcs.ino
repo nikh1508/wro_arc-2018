@@ -1,6 +1,6 @@
 void assign_pins() {
-  line1[0] = A1;
-  line1[1] = A2;
+  line1[0] = A3;
+  line1[1] = A4;
   line1[2] = A3;
   line1[3] = A4;
   line1[4] = A5;
@@ -31,14 +31,14 @@ void assign_pins() {
 }
 //
 void line_compare() {
-  compare_1[0] = 666;
-  compare_1[1] = 638;
-  compare_1[2] = 654;
-  compare_1[3] = 670;
-  compare_1[4] = 664;
-  compare_1[5] = 689;
-  compare_1[6] = 722;
-  compare_1[7] = 718;
+  compare_1[0] = 425;
+  compare_1[1] = 425;
+  compare_1[2] = 425;
+  compare_1[3] = 425;
+  compare_1[4] = 425;
+  compare_1[5] = 425;
+  compare_1[6] = 425;
+  compare_1[7] = 425;
   //
   compare_2[0] = 500;
   compare_2[1] = 500;
@@ -125,5 +125,6 @@ void bno_initialize() {
     yaw_offset = yaw_offset + (((((int)msb_yaw) << 8) | lsb_yaw));
   }
   yaw_offset /= 800;
+  //
   Serial.println(yaw_offset);
 }

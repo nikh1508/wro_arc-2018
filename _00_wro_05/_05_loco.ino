@@ -1,4 +1,5 @@
 void forward(int a, int b) {
+  //  motor_pin_reset();
   //0
   digitalWrite(m[0].a, HIGH);
   digitalWrite(m[0].b, LOW);
@@ -15,6 +16,7 @@ void forward(int a, int b) {
 }
 //
 void backward(int a, int b) {
+  //  motor_pin_reset();
   //0
   digitalWrite(m[0].a, LOW);
   digitalWrite(m[0].b, HIGH);
@@ -59,15 +61,21 @@ void ccw_90() {
     digitalWrite(m[2].a, LOW);
     digitalWrite(m[2].b, HIGH);
     //
-    analogWrite(m[0].pwm_pin, 30);
-    analogWrite(m[1].pwm_pin, 30);
-    analogWrite(m[2].pwm_pin, 30);
+    if (yaw > (-90.0) && yaw >= -80.0) {
+      analogWrite(m[0].pwm_pin, 60);//
+      analogWrite(m[1].pwm_pin, 60);//
+      analogWrite(m[2].pwm_pin, 60);//
+    }
+    else {
+      analogWrite(m[0].pwm_pin, 31);//
+      analogWrite(m[1].pwm_pin, 30);//
+      analogWrite(m[2].pwm_pin, 39);//
+    }
   }
   if (yaw <= -90.0) {
     ch = 's';
-    yaw_offset += yaw;
-    yaw = 0;
     move(ch);
+    last_rot = 'q';
   }
 }
 ////////
@@ -84,15 +92,21 @@ void ccw_45() {
     digitalWrite(m[2].a, LOW);
     digitalWrite(m[2].b, HIGH);
     //
-    analogWrite(m[0].pwm_pin, 30);
-    analogWrite(m[1].pwm_pin, 30);
-    analogWrite(m[2].pwm_pin, 30);
+    if (yaw > (-45.0) && yaw >= -30.0) {
+      analogWrite(m[0].pwm_pin, 60);//
+      analogWrite(m[1].pwm_pin, 60);//
+      analogWrite(m[2].pwm_pin, 60);//
+    }
+    else {
+      analogWrite(m[0].pwm_pin, 31);//
+      analogWrite(m[1].pwm_pin, 30);//
+      analogWrite(m[2].pwm_pin, 39);//
+    }
   }
   if (yaw <= -45.0) {
     ch = 's';
-    yaw_offset += yaw;
-    yaw = 0;
     move(ch);
+    last_rot = 'k';
   }
 }
 ////////
@@ -109,15 +123,21 @@ void cw_90() {
     digitalWrite(m[2].a, HIGH);
     digitalWrite(m[2].b, LOW);
     //
-    analogWrite(m[0].pwm_pin, 30);
-    analogWrite(m[1].pwm_pin, 30);
-    analogWrite(m[2].pwm_pin, 30);
+    if (yaw < (90.0) && yaw <= 80.0) {
+      analogWrite(m[0].pwm_pin, 60);//
+      analogWrite(m[1].pwm_pin, 60);//
+      analogWrite(m[2].pwm_pin, 60);//
+    }
+    else {
+      analogWrite(m[0].pwm_pin, 31);//
+      analogWrite(m[1].pwm_pin, 30);//
+      analogWrite(m[2].pwm_pin, 39);//
+    }
   }
   if (yaw >= 90.0) {
+    move('s');
     ch = 's';
-    yaw_offset += yaw;
-    yaw = 0;
-    move(ch);
+    last_rot = 'e';
   }
 }
 ///////
@@ -134,15 +154,21 @@ void cw_45() {
     digitalWrite(m[2].a, HIGH);
     digitalWrite(m[2].b, LOW);
     //
-    analogWrite(m[0].pwm_pin, 30);
-    analogWrite(m[1].pwm_pin, 30);
-    analogWrite(m[2].pwm_pin, 30);
+    if (yaw < (45.0) && yaw <= 30.0) {
+      analogWrite(m[0].pwm_pin, 60);//
+      analogWrite(m[1].pwm_pin, 60);//
+      analogWrite(m[2].pwm_pin, 60);//
+    }
+    else {
+      analogWrite(m[0].pwm_pin, 31);//
+      analogWrite(m[1].pwm_pin, 30);//
+      analogWrite(m[2].pwm_pin, 39);//
+    }
   }
   if (yaw >= 45.0) {
     ch = 's';
-    yaw_offset += yaw;
-    yaw = 0;
     move(ch);
+    last_rot = 'l';
   }
 }
 ///////
@@ -161,28 +187,32 @@ void move(char c) {
         break;
       }
     case ('q'): {
+        re_offset();
         while (ch != 's')
           ccw_90();
         break;
       }
     case ('e'): {
+        re_offset();
         while (ch != 's')
           cw_90();
         break;
       }
     case ('k'): {
+        re_offset();
         while (ch != 's')
           ccw_45();
         break;
       }
     case ('l'): {
+        re_offset();
         while (ch != 's')
           cw_45();
         break;
       }
-      ////
+    ////
     default: {
-        Serial.println("Default Hit LOCO");
+        //        Serial.println("Default Hit LOCO");
         break;
       }
   }

@@ -106,36 +106,40 @@ void sequence() {
     /////////////////////////////////
     case (8): {
         reset_feedback();
-        if (encoder_0 <= 1500) {
+        if (encoder_0 <= 2000) {
           encoder_data();
           ch = 'f';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 > 1500) {
+        if (encoder_0 > 1800) {
+          encoder_data();//
           ch = 'f';
           lpf(lowspeed);
           pid_yaw();
           move(ch);
-          l298n();
-          line_stop_block();
-          gripper();
-          sqc = 9;
+          if (encoder_0 >= 2000) {//
+            l298n();
+            line_stop_block();
+            flag_reset = true;
+            gripper_call();
+            sqc = 9;
+          }
         }
         break;
       }
     /////////////////////////////////
     case (9): {
         reset_feedback();
-        if (encoder_0 > -1500) {
+        if (encoder_0 > -2200) {
           encoder_data();
           ch = 'b';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 <= -1500) {
+        if (encoder_0 <= -2200) {
           ch = 'b';
           lpf(lowspeed);
           pid_yaw();
@@ -154,14 +158,15 @@ void sequence() {
     case (10): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        if (encoder_0 <= 2500) {
+        encoder_data();///////////////////////change
+        if (encoder_0 < 4000) {
           encoder_data();
           ch = 'f';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 > 2500) {
+        if (encoder_0 >= 4000) {
           ch = 'f';
           lpf(lowspeed);
           pid_yaw();
@@ -178,36 +183,40 @@ void sequence() {
     /////////////////////////////////
     case (11): {
         reset_feedback();
-        if (encoder_0 <= 1500) {
+        if (encoder_0 <= 1800) {
           encoder_data();
           ch = 'f';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 > 1500) {
+        if (encoder_0 > 1800) {
+          encoder_data();//
           ch = 'f';
           lpf(lowspeed);
           pid_yaw();
           move(ch);
-          l298n();
-          line_stop_block();
-          gripper();
-          sqc = 12;
+          if (encoder_0 >= 2000) {//
+            l298n();
+            line_stop_block();
+            flag_reset = true;
+            gripper_call();
+            sqc = 12;
+          }
         }
         break;
       }
     /////////////////////////////////
     case (12): {
         reset_feedback();
-        if (encoder_0 > -1500) {
+        if (encoder_0 > -2000) {
           encoder_data();
           ch = 'b';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 <= -1500) {
+        if (encoder_0 <= -2000) {
           ch = 'b';
           lpf(lowspeed);
           pid_yaw();
@@ -224,14 +233,14 @@ void sequence() {
     //////////////////////////////////////
     case (13): {
         reset_feedback();
-        if (encoder_0 <= 2500) {
+        if (encoder_0 <= 3800) {
           encoder_data();
           ch = 'f';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 > 2500) {
+        if (encoder_0 > 3800) {
           ch = 'f';
           lpf(lowspeed);
           pid_yaw();
@@ -282,22 +291,26 @@ void sequence() {
     /////////////////////////////////////////////////////
     case (16): {
         reset_feedback();
-        if (encoder_0 <= 1500) {
+        if (encoder_0 <= 1800) {
           encoder_data();
           ch = 'f';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 > 1500) {
+        if (encoder_0 > 1800) {
+          encoder_data();//
           ch = 'f';
           lpf(lowspeed);
           pid_yaw();
           move(ch);
-          l298n();
-          line_stop_block();
-          gripper();
-          sqc = 17;
+          if (encoder_0 >= 2000) {//
+            l298n();
+            line_stop_block();
+            flag_reset = true;
+            gripper_call();
+            sqc = 17;
+          }
         }
         break;
       }
@@ -391,22 +404,26 @@ void sequence() {
     /////////////////////////////////////////////////////
     case (21): {
         reset_feedback();
-        if (encoder_0 <= 1500) {
+        if (encoder_0 <= 1800) {
           encoder_data();
           ch = 'f';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 > 1500) {
+        if (encoder_0 > 1800) {
+          encoder_data();//
           ch = 'f';
           lpf(lowspeed);
           pid_yaw();
           move(ch);
-          l298n();
-          line_stop_block();
-          gripper();
-          sqc = 22;
+          if (encoder_0 >= 2000) {//
+            l298n();
+            line_stop_block();
+            flag_reset = true;
+            gripper_call();
+            sqc = 22;
+          }
         }
         break;
       }
@@ -499,22 +516,26 @@ void sequence() {
     ////////////////////////////////////////
     case (26): {
         reset_feedback();
-        if (encoder_0 <= 1500) {
+        if (encoder_0 <= 1800) {
           encoder_data();
           ch = 'f';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 > 1500) {
+        if (encoder_0 > 1800) {
+          encoder_data();//
           ch = 'f';
           lpf(lowspeed);
           pid_yaw();
           move(ch);
-          l298n();
-          line_stop_block();
-          gripper();
-          sqc = 27;
+          if (encoder_0 >= 2000) {//
+            l298n();
+            line_stop_block();
+            flag_reset = true;
+            gripper_call();
+            sqc = 27;
+          }
         }
         break;
       }
@@ -587,30 +608,32 @@ void sequence() {
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 > 3000 && encoder_0 < 3200) {
+        if (encoder_0 > 3000) {
           encoder_data();
           ch = 'f';
           lpf(lowspeed);
           pid_yaw();
           move(ch);
-          l298n();
-          line_stop_block();
-          gripper();
-          sqc = 31;
+          if (encoder_0 >= 3200) {
+            l298n();
+            line_stop_block();
+            gripper_call();
+            sqc = 31;
+          }
         }
         break;
       }
     ////////////////////////
     case (31): {
         reset_feedback();
-        if (encoder_0 > -3200) {
+        if (encoder_0 > -2800) {
           encoder_data();
           ch = 'b';
           lpf(highspeed);
           pid_yaw();
           move(ch);
         }
-        if (encoder_0 <= -3200) {
+        if (encoder_0 <= -2800) {
           ch = 'b';
           lpf(lowspeed);
           pid_yaw();
@@ -626,7 +649,7 @@ void sequence() {
       }
     ///////////////////////////////
     default: {
-        Serial.println("Default Hit sequence");
+        //        Serial.println("Default Hit sequence");
         break;
       }
   }
