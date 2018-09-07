@@ -4,6 +4,7 @@ count = 10
 
 
 try:
+########
     #Wait calibrate camera and moving to cross section
     sendData(101,1)
     while True:
