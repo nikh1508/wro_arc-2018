@@ -4,10 +4,6 @@ void loop() {
   /////
   sequence();
   servo_camera();
-
-
-
-
   prev_error = error;//pid
   prev = cur;//dt
 }

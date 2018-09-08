@@ -26,7 +26,7 @@ byte lsb_yaw = 0;
 byte msb_yaw = 0;
 double yaw_offset = 0.0;
 double yaw = 0.0;
-double rotate_desired=0.0;
+double rotate_desired = 0.0;
 ////////////
 ////////////
 struct motors {
@@ -91,7 +91,7 @@ double I = 0.0;
 double D = 0.0;
 double error = 0.0;
 double prev_error = 0.0;
-double kp = 3.0;
+double kp = 20.0;
 double ki = 0.0;
 double kd = 2.0;
 double pid = 0.0;
@@ -128,10 +128,3 @@ int a_l = 36;
 int b_l = 38;
 ///////////
 ///////////
-int status_m0a = 1;
-int status_m0b = 1;
-//
-int status_m2a = 1;
-int status_m2b = 1;
-//
-bool flag_motor = true;

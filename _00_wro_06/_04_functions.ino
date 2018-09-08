@@ -16,8 +16,8 @@ void bno() {
 void pid_yaw(double angle) {
   bno();
   error = yaw - angle;
-  if (angle == 360.0)
-    error = yaw - 360.0;
+  if (angle == 360.0 && yaw > 0.0 && yaw < 90.0)
+    error = yaw;
   //
   P = error * kp;
   I = (I + (error / (double)time)) * ki;
@@ -82,15 +82,24 @@ void l298n() {
     digitalWrite(a_l, HIGH);
     digitalWrite(b_l, LOW);
     analogWrite(pwm_l, 150);
-    delay(900);
+    for (i = 0; i < 1000; i++) {
+      if (rotate_desired < 0)
+        rotate_desired = rotate_desired * (1.0);
+      pid_yaw(rotate_desired);
+      Serial.print(" ");
+    }
     digitalWrite(a_l, LOW);
     digitalWrite(b_l, HIGH);
     analogWrite(pwm_l, 150);
-    delay(900);
+    for (i = 0; i < 1000; i++) {
+      if (rotate_desired < 0)
+        rotate_desired = rotate_desired * (1.0);
+      pid_yaw(rotate_desired);
+      Serial.print(" ");
+    }
     digitalWrite(a_l, LOW);
     digitalWrite(b_l, LOW);
     analogWrite(pwm_l, 0);
-    delay(900);
   }
 }
 //////////////////

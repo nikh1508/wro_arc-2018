@@ -104,9 +104,9 @@ void move(char c) {
           digitalWrite(m[2].a, LOW);
           digitalWrite(m[2].b, HIGH);
           //
-          analogWrite(m[0].pwm_pin, 45);//
-          analogWrite(m[1].pwm_pin, 45);//
-          analogWrite(m[2].pwm_pin, 45);//
+          analogWrite(m[0].pwm_pin, 50);//
+          analogWrite(m[1].pwm_pin, 50);//
+          analogWrite(m[2].pwm_pin, 65);//
           //
         }
         //
@@ -121,9 +121,9 @@ void move(char c) {
           digitalWrite(m[2].a, HIGH);
           digitalWrite(m[2].b, LOW);
           //
-          analogWrite(m[0].pwm_pin, 45);//
-          analogWrite(m[1].pwm_pin, 45);//
-          analogWrite(m[2].pwm_pin, 45);//
+          analogWrite(m[0].pwm_pin, 50);//
+          analogWrite(m[1].pwm_pin, 50);//
+          analogWrite(m[2].pwm_pin, 65);//
         }
         while (ch != 's')
           rotate(rotate_desired);
