@@ -84,7 +84,7 @@ void l298n() {
     analogWrite(pwm_l, 150);
     for (i = 0; i < 1000; i++) {
       if (rotate_desired < 0)
-        rotate_desired = rotate_desired * (1.0);
+        rotate_desired = rotate_desired * (-1.0);
       pid_yaw(rotate_desired);
       Serial.print(" ");
     }
@@ -92,8 +92,6 @@ void l298n() {
     digitalWrite(b_l, HIGH);
     analogWrite(pwm_l, 150);
     for (i = 0; i < 1000; i++) {
-      if (rotate_desired < 0)
-        rotate_desired = rotate_desired * (1.0);
       pid_yaw(rotate_desired);
       Serial.print(" ");
     }
