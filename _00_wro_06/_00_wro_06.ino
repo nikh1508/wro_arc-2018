@@ -91,10 +91,11 @@ double I = 0.0;
 double D = 0.0;
 double error = 0.0;
 double prev_error = 0.0;
-double kp = 12.0;
-double ki = 1.0;
+double kp = 16.5;
+double ki = 1.01;
 double kd = 100.0;
 double pid = 0.0;
+bool flag_pid=true;
 /////////////////////////
 /////////////////////////
 double lpf_output = 0.0;
@@ -102,8 +103,8 @@ double alpha = 0.02;
 double desired_value = 0.0;
 double prev_output = 0.0;
 //////////
-int highspeed = 60;
-int lowspeed = 30;
+int highspeed = 50;
+int lowspeed = 50;
 ////////////////////////
 ////////////////////////
 int i, j;
