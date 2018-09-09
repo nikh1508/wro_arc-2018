@@ -150,3 +150,19 @@ void line_stop_block() {
   else
     dline3 = 0;
 }
+////////////////////
+void line_stop_prependicular() {
+  input_line_prependicular();
+  for (i = 0; i < 8; i++) {
+    dline2 += dline_data_2[i];
+  }
+  Serial.println(dline2);
+  if (dline2 >= 7) {
+    ch = 's';
+    move(ch);
+    flag_reset = true;
+    sqc = 0;
+  }
+  else
+    dline2 = 0;
+}
