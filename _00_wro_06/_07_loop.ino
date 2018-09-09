@@ -5,10 +5,13 @@ void loop() {
   //  ch='r';
   //  move(ch);
   //  while(1);
-  
-  while (ch != 's')
-    left();
-    
+  ch = 'r';
+  while (ch != 's') {
+    right();
+    encoder_data1();
+    Serial.println(encoder_1);
+  }
+while(1);
 }
 //LEFT
 //digitalWrite(m[0].a, HIGH);

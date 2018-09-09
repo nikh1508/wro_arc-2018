@@ -43,7 +43,7 @@ void left() {
   analogWrite(m[0].pwm_pin, 38);
   analogWrite(m[1].pwm_pin, 50);
   analogWrite(m[2].pwm_pin, 38);
-  line_stop_prependicular();
+  line_stop_prependicular(0);
 }
 
 void right() {
@@ -56,6 +56,7 @@ void right() {
   analogWrite(m[0].pwm_pin, 39);
   analogWrite(m[1].pwm_pin, 51);
   analogWrite(m[2].pwm_pin, 38);
+  line_stop_prependicular(1);
 }
 
 void stop() {

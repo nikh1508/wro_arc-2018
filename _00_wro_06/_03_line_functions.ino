@@ -151,13 +151,20 @@ void line_stop_block() {
     dline3 = 0;
 }
 ////////////////////
-void line_stop_prependicular() {
+int sideShift[] = {80, 0};
+///////////////////
+void line_stop_prependicular(int dir) {
   input_line_prependicular();
   for (i = 0; i < 8; i++) {
     dline2 += dline_data_2[i];
   }
-  Serial.println(dline2);
+  //  Serial.println(dline2);
   if (dline2 >= 7) {
+    encoder_data1();
+    int lastEncCounts = encoder_1;
+    while (abs(lastEncCounts - encoder_1) < sideShift[dir]) {
+      encoder_data1();
+    }
     ch = 's';
     move(ch);
     flag_reset = true;
