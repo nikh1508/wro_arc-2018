@@ -19,6 +19,11 @@ void pid_yaw(double angle) {
     prev = cur;
     return;
   }
+  if(flag_pid==true){
+    I=0.0;
+    prev=cur;
+    flag_pid=false;
+    }
   cur - prev == 0 ? time = 1 : time = cur - prev;
   bno();
   error = yaw - angle;
@@ -28,16 +33,26 @@ void pid_yaw(double angle) {
     error = 0.0;
   //
   P = error * kp;
+  if(error == 0.00)
+  {
+    I=0.0;
+  }
+  if(I>10.0||I<-10.0)
+  {
+    I=I<0?-10.0:10.0;
+  }
   //  I = (I + (error * time)) * ki;//
   I = I + (error - prev_error);
   I = ki * I;
   D = ((error - prev_error) / time) * kd;
   pid = P + I + D;
+ // Serial.print(error);Serial.print(" ");Serial.print(P);Serial.print(" ");Serial.print(" ");Serial.print(I);Serial.print(" ");Serial.print(D);
   if (ch == 'f')
     m[0].pwm = m[0].pwm + int(pid);
   if (ch == 'b')
     m[0].pwm = m[0].pwm - int(pid);
   m[0].pwm = constrain(m[0].pwm, 0, 255);
+  //Serial.print(" ");Serial.println(m[0].pwm);
   prev_error = error;//pid
   prev = cur;//dt
 }
@@ -65,15 +80,16 @@ void reset_encoder() {
 ////////////
 void lpf(double d_value) {
   /////low pass
-  desired_value = d_value;
-  lpf_output = alpha * desired_value + (1 - alpha) * prev_output;
-  prev_output = lpf_output;
-  m[0].pwm = int(lpf_output);
-  m[2].pwm = int(lpf_output);
+//  desired_value = d_value;
+//  lpf_output = alpha * desired_value + (1 - alpha) * prev_output;
+//  prev_output = lpf_output;
+  m[0].pwm = int(d_value);
+  m[2].pwm = int(d_value);
 }
 //////////////
 void reset_feedback() {
   if (flag_reset == true) {
+    flag_pid=true;
     reset_encoder();
     dline1 = 0;
     dline2 = 0;
