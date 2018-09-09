@@ -1,6 +1,7 @@
 void gripper_call() {
   ch = 's';
   move(ch);
+  delay(100);
   fuse(1300, 2120, 600);
   fuse(1100, 2110, 300);
   fuse(1200, 1760, 600); //non-blue
