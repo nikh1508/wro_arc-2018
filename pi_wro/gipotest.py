@@ -6,8 +6,8 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(cnl,GPIO.IN,GPIO.PUD_DOWN)
 try:
     while(True):
-        print(GPIO.input(cnl))
-        time.sleep(0.5)
+        print (GPIO.input(cnl))
+        time.sleep(0.1)
 except KeyboardInterrupt:
     GPIO.cleanup()
     print("Exit")

@@ -4,7 +4,6 @@ count = 10
 
 
 try:
-########
     #Wait calibrate camera and moving to cross section
     sendData(101,1)
     while True:
@@ -63,7 +62,7 @@ try:
     #Scan for Block 3 -- short supply line near start
 
     print 'Wait 45 degree ccw'
-    sendData(5,1)                       #Wait 45 degree ccw
+    sendData(4,1)                       #Wait 45 degree ccw == 4
     while True:
         s=0
         for i in range(count):
@@ -97,7 +96,7 @@ try:
     #Scan for Block 4 -- inside void space 1
     
     print 'Wait 90 degree ccw'    
-    sendData(3,1)                       #Wait 90 degree ccw
+    sendData(5,1)                       #Wait 90 degree ccw  == 5
     while True:
         s=0
         for i in range(count):
@@ -153,7 +152,7 @@ try:
     #########################################################################
     #Scan for Block 6 -- inside void space 3
     print 'Wait 45 degree ccw'
-    sendData(5,1)#Wait 45 degree ccw
+    sendData(6,1)                       #Wait 45 degree ccw == 6
     while True:
         s=0
         for i in range(count):
@@ -187,7 +186,7 @@ try:
                     break
     ########################################################################
     print 'Wait 90 degree cw'
-    sendData(4,1)                       #Wait 90 degree cw to set initial 
+    sendData(90,1)                       #Wait 90 degree to set initial 
     while True:
         s=0
         for i in range(count):
@@ -252,8 +251,8 @@ try:
             if s == count:
                 break
         #********************************
-        print 'Wait 90 degree cw'
-        sendData(4,1)
+        print 'Wait initial 90 degree cw'
+        sendData(90,1)
         while True:
             s=0
             for i in range(count):
@@ -263,18 +262,7 @@ try:
             if s == count:
                 break
         print '1'
-        
-        print 'Wait 90 degree cw'
-        sendData(4,1)
-        while True:
-            s=0
-            for i in range(count):
-                s = s + GPIO.input(cnl)
-                time.sleep(0.1)
-                ####print s
-            if s == count:
-                break
-        print '1'
+       
         #********************************
         
 
