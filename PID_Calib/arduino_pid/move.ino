@@ -82,6 +82,7 @@ void move(char c) {
   switch (c) {
     case ('f'): {
         forward(m[0].pwm, m[2].pwm);
+        Serial.println("MOVE::" + String(m[0].pwm));
         break;
       }
     case ('b'): {

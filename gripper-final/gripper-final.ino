@@ -14,6 +14,7 @@ int GRIPPER_DLY = 1200;
 int ARM_DLY = 2500;
 
 void setup() {
+  Serial.begin(115200);
   gripper.attach(40, 750, 2250);
   arm.attach(42, 750, 2250);
   gripper.writeMicroseconds(GRIPPER_INIT);

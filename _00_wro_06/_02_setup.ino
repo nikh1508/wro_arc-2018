@@ -5,9 +5,9 @@ void setup() {
   assign_pins();
   line_compare();
   declaration();
-  bno_initialize();
   camera.attach(camera_pin, 750, 2250);
   camera.writeMicroseconds(900);
+  bno_initialize();
   //  gripper.attach(grip_pin, 750, 2250);
   //  arm.attach(arm_pin, 750, 2250);
   //  gripper.writeMicroseconds(GRIPPER_INIT);

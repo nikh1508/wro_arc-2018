@@ -28,7 +28,9 @@ double yaw_offset = 0.0;
 double yaw = 0.0;
 double rotate_desired = 0.0;
 ////////////
+enum dir {CW , CCW};
 ////////////
+void move(char c);
 struct motors {
   int a;
   int b;
@@ -117,6 +119,7 @@ int sqc_pin = 18;
 ///////////
 byte encode[6];
 volatile int encoder_0 = 0;
+volatile int encoder_1 = 0;
 ///////////
 ///////////
 bool flag_reset = true;
