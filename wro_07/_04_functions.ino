@@ -14,46 +14,33 @@ void bno() {
 }
 ////////////////////
 void pid_yaw(double angle) {
-  cur = millis();
-  if (cur == 0 || prev == 0) {
-    prev = cur;
-    return;
-  }
-  if (flag_pid == true) {
-    I = 0.0;
-    prev = cur;
-    flag_pid = false;
-  }
-  cur - prev == 0 ? time = 1 : time = cur - prev;
   bno();
   error = yaw - angle;
   if (angle == 360.0 && yaw > 0.0 && yaw < 90.0)
     error = yaw;
   if (error == -360.0)
     error = 0.0;
-  //
   P = error * kp;
-  if (error == 0.00)
-  {
-    I = 0.0;
-  }
-  if (I > 10.0 || I < -10.0)
-  {
-    I = I < 0 ? -10.0 : 10.0;
-  }
-  //  I = (I + (error * time)) * ki;//
-  I = I + (error - prev_error);
-  I = ki * I;
-  D = ((error - prev_error) / time) * kd;
-  pid = P + I + D;
-  if (ch == 'f')
+  //  Serial.print(P); Serial.print(" "); Serial.print(error);
+  pid = P;
+  analogWrite(m[0].pwm_pin, m[0].pwm-(error*0.5) );
+  /*
+  if (direction[index][motion] == 1)
     m[0].pwm = m[0].pwm + int(pid);
-  if (ch == 'b')
+  if (direction[index][motion] == -1)
     m[0].pwm = m[0].pwm - int(pid);
-  m[0].pwm = constrain(m[0].pwm, 0, 255);
-  analogWrite(m[0].pwm_pin, m[0].pwm );/////////////////--------->>>>>>>>>>>>>>>>
-  prev_error = error;//pid
-  prev = cur;//dt
+  m[0].pwm = constrain(m[0].pwm, -255, 255);
+  /*if (m[0].pwm >= 0) {
+    digitalWrite(m[0].a, HIGH);
+    digitalWrite(m[0].b, LOW);
+    analogWrite(m[0].pwm_pin, m[0].pwm );
+  }
+  if (m[0].pwm < 0) {
+    digitalWrite(m[0].a, LOW);
+    digitalWrite(m[0].b, HIGH);
+    analogWrite(m[0].pwm_pin, -m[0].pwm );
+  }*/
+  Serial.println(error);
 }
 ///////////
 byte rpm_data[2];
