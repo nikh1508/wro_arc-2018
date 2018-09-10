@@ -33,7 +33,7 @@ void backward(int a, int b) {
 }
 //
 
-void left() {
+void leftUntilLine() {
   digitalWrite(m[0].a, HIGH);
   digitalWrite(m[0].b, LOW);
   digitalWrite(m[1].a, LOW);
@@ -43,10 +43,10 @@ void left() {
   analogWrite(m[0].pwm_pin, 38);
   analogWrite(m[1].pwm_pin, 50);
   analogWrite(m[2].pwm_pin, 38);
-  line_stop_prependicular(0);
+  while (!line_stop_prependicular(1));
 }
 
-void right() {
+void rightUntilLine() {
   digitalWrite(m[0].a, LOW);
   digitalWrite(m[0].b, HIGH);
   digitalWrite(m[1].a, HIGH);
@@ -56,7 +56,7 @@ void right() {
   analogWrite(m[0].pwm_pin, 39);
   analogWrite(m[1].pwm_pin, 51);
   analogWrite(m[2].pwm_pin, 38);
-  line_stop_prependicular(1);
+  while (!line_stop_prependicular(1));
 }
 
 void stop() {

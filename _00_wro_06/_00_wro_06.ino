@@ -28,6 +28,7 @@ double yaw_offset = 0.0;
 double yaw = 0.0;
 double rotate_desired = 0.0;
 ////////////
+enum dir {CW , CCW};
 ////////////
 void move(char c);
 struct motors {

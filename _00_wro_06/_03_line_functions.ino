@@ -153,7 +153,7 @@ void line_stop_block() {
 ////////////////////
 int sideShift[] = {80, 0};
 ///////////////////
-void line_stop_prependicular(int dir) {
+bool line_stop_prependicular(int dir) {
   input_line_prependicular();
   for (i = 0; i < 8; i++) {
     dline2 += dline_data_2[i];
@@ -166,10 +166,13 @@ void line_stop_prependicular(int dir) {
       encoder_data1();
     }
     ch = 's';
-    move(ch);
+    stop();
     flag_reset = true;
     sqc = 0;
+    return true;
   }
-  else
+  else{
     dline2 = 0;
+    return false;
+    }
 }
