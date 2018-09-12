@@ -35,7 +35,7 @@ struct motors {
   int pwm;
 } m[3];
 ////////////////
-int speed = 45;
+int speed = 80;
 /////////////////////
 int m0_a = 32;
 int m0_b = 34;
