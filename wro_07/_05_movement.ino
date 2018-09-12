@@ -9,9 +9,10 @@ void move(int n, int data, int d_angle) {
     digitalWrite(m[2].a, HIGH);
     digitalWrite(m[2].b, LOW);
     //
-    analogWrite(m[0].pwm_pin, speed);
+    m[0].pwm = m[2].pwm = speed;
+    analogWrite(m[0].pwm_pin, m[0].pwm);
     analogWrite(m[1].pwm_pin, 0);
-    analogWrite(m[2].pwm_pin, speed);
+    analogWrite(m[2].pwm_pin, m[0].pwm);
     //
     while (ch != 's') {
       pid_yaw(d_angle);
@@ -31,9 +32,10 @@ void move(int n, int data, int d_angle) {
     digitalWrite(m[2].a, LOW);
     digitalWrite(m[2].b, HIGH);
     //
-    analogWrite(m[0].pwm_pin, speed);
+    m[0].pwm = m[2].pwm = speed;
+    analogWrite(m[0].pwm_pin, m[0].pwm);
     analogWrite(m[1].pwm_pin, 0);
-    analogWrite(m[2].pwm_pin, speed);
+    analogWrite(m[2].pwm_pin, m[0].pwm);
     //
     while (ch != 's') {
       pid_yaw(d_angle);

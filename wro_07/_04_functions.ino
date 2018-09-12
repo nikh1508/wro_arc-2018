@@ -15,33 +15,22 @@ void bno() {
 ////////////////////
 void pid_yaw(double angle) {
   bno();
-  error = yaw - angle;
-  if (angle == 360.0 && yaw > 0.0 && yaw < 90.0)
-    error = yaw;
-  if (error == -360.0)
-    error = 0.0;
-  P = error * kp;
-  //  Serial.print(P); Serial.print(" "); Serial.print(error);
-  pid = P;
-  analogWrite(m[0].pwm_pin, m[0].pwm-(error*0.5) );
-  /*
+  input = diff(yaw, angle);
+//  Serial.println(input);
+  myPID.Compute();
   if (direction[index][motion] == 1)
-    m[0].pwm = m[0].pwm + int(pid);
-  if (direction[index][motion] == -1)
-    m[0].pwm = m[0].pwm - int(pid);
-  m[0].pwm = constrain(m[0].pwm, -255, 255);
-  /*if (m[0].pwm >= 0) {
-    digitalWrite(m[0].a, HIGH);
-    digitalWrite(m[0].b, LOW);
-    analogWrite(m[0].pwm_pin, m[0].pwm );
-  }
-  if (m[0].pwm < 0) {
-    digitalWrite(m[0].a, LOW);
-    digitalWrite(m[0].b, HIGH);
-    analogWrite(m[0].pwm_pin, -m[0].pwm );
-  }*/
-  Serial.println(error);
+    m[2].pwm = constrain(m[0].pwm + output, 0, 255);
+  else
+    m[2].pwm = constrain(m[0].pwm - output, 0, 255);
+  analogWrite(m[2].pwm_pin, m[2].pwm);
+  Serial.print("SET:" + String(setpoint));
+  Serial.print("\tINP:" + String(input));
+  Serial.print("\tOUT:" + String(output));
+  Serial.print("\tLFT:" + String(m[2].pwm));
+  Serial.print("\tRT:" + String(m[0].pwm));
+  Serial.print("\tYAW:" + String(yaw));
 }
+
 ///////////
 byte rpm_data[2];
 int rpm = 0, rpm1 = 0;
@@ -105,11 +94,10 @@ void reset_encoder() {
 ///////////////////////////
 void reset_feedback() {
   reset_encoder();
-  flag_pid = true;
+  ///  flag_pid = true;
   dline1 = 0;
   dline2 = 0;
-  error = 0;
-  prev_error = 0;
+  ///  prev_error = 0;
   m[0].pwm = 0;
   ch = '\0';
 }

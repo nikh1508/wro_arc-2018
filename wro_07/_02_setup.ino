@@ -13,4 +13,7 @@ void setup() {
   //  gripper.writeMicroseconds(GRIPPER_INIT);
   //  arm.writeMicroseconds(ARM_INIT);
   bno_initialize();
+  setpoint = 0.0;
+  myPID.SetOutputLimits(-255, 255);
+  myPID.SetMode(AUTOMATIC);
 }

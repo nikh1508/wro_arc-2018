@@ -13,7 +13,7 @@ void line_stop() {
   for (i = 0; i < 6; i++) {
     dline1 += dline_data_1[i];
   }
-  if (dline1 == 8) {
+  if (dline1 == 6) {
     stop();
     ch = 's';
   }

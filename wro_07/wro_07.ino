@@ -1,4 +1,5 @@
 #include <Servo.h>
+#include<PID_v1.h>
 #define ARM_INIT 1700
 #define GRIPPER_INIT 1500
 Servo gripper;
@@ -74,17 +75,11 @@ double prev = 0.0;
 double cur = 0.0;
 double time = 0.0;
 ///////////////
-double P = 0.0;
-double I = 0.0;
-double D = 0.0;
-double error = 0.0;
-double prev_error = 0.0;
-double kp = 0.05;
-double ki = 0.01;
-double kd = 100.0;
-double pid = 0.0;
-bool flag_pid = true;
+double setpoint, input, output, nwSetpoint, kp = 13.0, ki = 1.5, kd = 6.75;
+
+PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
 ////////////////////
+enum dir {CW , CCW};
 int i, j;
 char ch = '\0';
 int sqc = 1;
