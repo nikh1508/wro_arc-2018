@@ -58,9 +58,10 @@ void move_encoder_only(int n, int data, int d_angle) {
     digitalWrite(m[2].a, HIGH);
     digitalWrite(m[2].b, LOW);
     //
-    analogWrite(m[0].pwm_pin, speed);
+    m[0].pwm = m[2].pwm = speed;
+    analogWrite(m[0].pwm_pin, m[0].pwm);
     analogWrite(m[1].pwm_pin, 0);
-    analogWrite(m[2].pwm_pin, speed);
+    analogWrite(m[2].pwm_pin, m[0].pwm);
     //
     while (ch != 's') {
       pid_yaw(d_angle);
@@ -82,9 +83,10 @@ void move_encoder_only(int n, int data, int d_angle) {
     digitalWrite(m[2].a, LOW);
     digitalWrite(m[2].b, HIGH);
     //
-    analogWrite(m[0].pwm_pin, speed);
+    m[0].pwm = m[2].pwm = speed;
+    analogWrite(m[0].pwm_pin, m[0].pwm);
     analogWrite(m[1].pwm_pin, 0);
-    analogWrite(m[2].pwm_pin, speed);
+    analogWrite(m[2].pwm_pin, m[0].pwm);
     //
     while (ch != 's') {
       pid_yaw(d_angle);
@@ -98,36 +100,6 @@ void move_encoder_only(int n, int data, int d_angle) {
 }
 ///////////////////////////
 ///////////////////////////
-void rotate(double d_angle) {
-  bno();
-  if (d_angle < 0) {
-    double lower_v, upper_v;
-    lower_v = (d_angle * (-1.0) ) - 1.0;
-    upper_v = (d_angle * (-1.0)) + 1.0;
-    if (yaw >= lower_v && yaw <= upper_v && d_angle != 360.0) {
-      stop();
-      ch = 's';
-    }
-    if (d_angle == 360 && yaw >= 359.0) {
-      stop();
-      ch = 's';
-    }
-  }
-  else {
-    double lower_v, upper_v;
-    lower_v = d_angle - 1.0;
-    upper_v = d_angle + 1.0;
-    if (yaw >= lower_v && yaw <= upper_v && d_angle != 360.0) {
-      stop();
-      ch = 's';
-    }
-    if (d_angle == 360 && yaw >= 359.0) {
-      stop();
-      ch = 's';
-    }
-  }
-}
-///////////////////////////////
 void sideways(int data) {
   encoder_data0();
   if (encoder_0 >= data) {

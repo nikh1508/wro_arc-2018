@@ -18,37 +18,7 @@ void sequnece() {
     case (3): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        if (angle[index][motion] > 0) {
-          digitalWrite(m[0].a, LOW);
-          digitalWrite(m[0].b, HIGH);
-          //1
-          digitalWrite(m[1].a, LOW);
-          digitalWrite(m[1].b, HIGH);
-          //2
-          digitalWrite(m[2].a, HIGH);
-          digitalWrite(m[2].b, LOW);
-          //
-          analogWrite(m[0].pwm_pin, 30);//
-          analogWrite(m[1].pwm_pin, 30);//
-          analogWrite(m[2].pwm_pin, 40);//
-        }
-        else
-        {
-          digitalWrite(m[0].a, HIGH);
-          digitalWrite(m[0].b, LOW);
-          //1
-          digitalWrite(m[1].a, HIGH);
-          digitalWrite(m[1].b, LOW);
-          //2
-          digitalWrite(m[2].a, LOW);
-          digitalWrite(m[2].b, HIGH);
-          //
-          analogWrite(m[0].pwm_pin, 30);//
-          analogWrite(m[1].pwm_pin, 30);//
-          analogWrite(m[2].pwm_pin, 40);//
-        }
-        while (ch != 's')
-          rotate(angle[index][motion]);
+        
         motion++;
         break;
       }

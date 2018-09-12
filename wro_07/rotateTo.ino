@@ -16,7 +16,7 @@ double abs1(double x) {
   else return x;
 }
 
-void rotateTo(double angle, int dir, int ROT_SPEED) {
+void rotateTo(double angle, int dir, int ROT_SPEED=95) {
   initialSpeed = rotationSpeed = ROT_SPEED;
   angle = abs1(angle);
   switch (dir) {

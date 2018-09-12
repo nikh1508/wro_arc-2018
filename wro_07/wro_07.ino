@@ -76,7 +76,6 @@ double cur = 0.0;
 double time = 0.0;
 ///////////////
 double setpoint, input, output, nwSetpoint, kp = 13.0, ki = 1.5, kd = 6.75;
-
 PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
 ////////////////////
 enum dir {CW , CCW};
@@ -105,3 +104,5 @@ int direction[20][20] = {0};
 int steps[20][20] = {0};
 double angle[20][20] = {0};
 int action[20][20] = {0};
+int rotate_direction[20][20] = {0};
+int rotate_speed[20][20] = {0};

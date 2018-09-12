@@ -11,10 +11,11 @@ void assign_sequence() {
   steps[0][0] = 1500;
   steps[0][2] = 8000;
   //
-  angle[0][0] = 360.0;//////
-  angle[0][1] = -270.0;
+  angle[0][0] = 0.0;//////
+  angle[0][1] = 270.0;
   angle[0][2] = 270.0;
   //
+  rotate_direction[0][1] = CCW;
   //////////rotation via pi
   action[1][0] = 3;
   action[1][1] = 0;
