@@ -17,6 +17,9 @@ void fetchData() {
       case 'd':
         kd = (double)val / 4.0;
         break;
+      default:
+        while (Serial1.available())
+          char bin = Serial1.read();
     }
     Serial.print("Power :: ");
     Serial.print(test);

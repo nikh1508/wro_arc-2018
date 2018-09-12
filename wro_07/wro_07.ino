@@ -13,6 +13,8 @@ int GRIPPER_DLY = 1200;
 int ARM_DLY = 2500;
 #define fused_motion_debug false
 /////////////////////
+enum dir {CW , CCW};
+enum spd {slow, fast};
 int camera_pin = 48;
 int grip_pin = 40;
 int arm_pin = 42;
@@ -35,7 +37,7 @@ struct motors {
   int pwm;
 } m[3];
 ////////////////
-int speed = 80;
+int speed[2] = {35, 80};
 /////////////////////
 int m0_a = 32;
 int m0_b = 34;
@@ -75,10 +77,9 @@ double prev = 0.0;
 double cur = 0.0;
 double time = 0.0;
 ///////////////
-double setpoint, input, output, nwSetpoint, kp = 13.0, ki = 1.5, kd = 6.75;
-PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
+double setpoint, input, output, nwSetpoint, kp[] = {12.5, 13.0}, ki[] = {0.5, 1.5}, kd[] = {3.5, 6.75};
+PID myPID(&input, &output, &setpoint, kp[fast], ki[fast], kd[fast], DIRECT);
 ////////////////////
-enum dir {CW , CCW};
 int i, j;
 char ch = '\0';
 int sqc = 1;

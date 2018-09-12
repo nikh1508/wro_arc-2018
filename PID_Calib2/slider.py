@@ -22,13 +22,13 @@ def sendData(ch, val):
 master = Tk()
 LEN = 1000
 
-Kp = Scale(master,length=LEN, label='Kp', from_=0, to=255, orient=HORIZONTAL)
+Kp = Scale(master,length=LEN, label='Kp', from_=1, to=255, orient=HORIZONTAL)
 Kp.pack()
 
-Ki = Scale(master, length=LEN, label='Ki',from_=0, to=255, orient=HORIZONTAL)
+Ki = Scale(master, length=LEN, label='Ki',from_=1, to=255, orient=HORIZONTAL)
 Ki.pack()
 
-Kd = Scale(master, length=LEN, label='Kd', from_=0, to=255, orient=HORIZONTAL)
+Kd = Scale(master, length=LEN, label='Kd', from_=1, to=255, orient=HORIZONTAL)
 Kd.pack()
 #Button(master, text='Show', command=show_values).pack()
 

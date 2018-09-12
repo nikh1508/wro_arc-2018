@@ -1,11 +1,12 @@
 #define BNO055_SAMPLERATE_DELAY_MS (100)
 
 #include<PID_v1.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BNO055.h>
-#include <utility/imumaths.h>
+#include<Wire.h>
+//#include <Adafruit_Sensor.h>
+//#include <Adafruit_BNO055.h>
+//#include <utility/imumaths.h>
 
-#define setValue 80
+#define setValue 35
 
 struct mtr {
   int left_1 = 30;
@@ -18,23 +19,23 @@ struct mtr {
 
 } motor;
 
-int pins[] = {30, 28, 4, 32, 34, 3};
+int pins[] = {30, 28, 4, 32, 34, 3, 24, 26, 5};
 
-double setpoint, input, output, kp=5, ki, kd;
+double setpoint, input, output, kp=13.0, ki=1.5, kd=6.75;
 
 PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
-Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x29);
+//Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x29);
 
-double get_yaw() {
-  sensors_event_t event;
-  bno.getEvent(&event);
-  double x = event.orientation.x; // taking X readings
-  double y = event.orientation.y;
-  double z = event.orientation.z;
-  if (x > 180)                  //to get negative angles in CCW direction
-    x = (360 - x) * -1;
-  return x;
-}
+//double get_yaw() {
+//  sensors_event_t event;
+//  bno.getEvent(&event);
+//  double x = event.orientation.x; // taking X readings
+//  double y = event.orientation.y;
+//  double z = event.orientation.z;
+//  if (x > 180)                  //to get negative angles in CCW direction
+//    x = (360 - x) * -1;
+//  return x;
+//}
 
 int pwm_l = setValue, pwm_r = setValue;
 
@@ -45,14 +46,20 @@ void setup() {
   for (int pin : pins) {
     pinMode(pin, OUTPUT);
   }
-  if (!bno.begin())
-  {
-    Serial.print("BNO not detected. Check connections or I2C ADDR!(Run I2C Scanner in Debug Mode.)");
-    while (1);
-  }
+  
+//  if (!bno.begin())
+//  {
+//    Serial.print("BNO not detected. Check connections or I2C ADDR!(Run I2C Scanner in Debug Mode.)");
+//    while (1);
+//  }
   Serial.println("Started");
-  bno.setExtCrystalUse(true);
+//  bno.setExtCrystalUse(true);
   setpoint = 0.0;
   myPID.SetOutputLimits(-255, 255);
   myPID.SetMode(AUTOMATIC);
+  bno_initialize();
+  digitalWrite(24, HIGH);
+  digitalWrite(26, HIGH);
+  digitalWrite(5, HIGH);
+//  delay(2000);
 }

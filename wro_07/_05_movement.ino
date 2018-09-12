@@ -9,16 +9,21 @@ void move(int n, int data, int d_angle) {
     digitalWrite(m[2].a, HIGH);
     digitalWrite(m[2].b, LOW);
     //
-    m[0].pwm = m[2].pwm = speed;
+    m[0].pwm = m[2].pwm = speed[fast];
     analogWrite(m[0].pwm_pin, m[0].pwm);
     analogWrite(m[1].pwm_pin, 0);
     analogWrite(m[2].pwm_pin, m[0].pwm);
     //
+    myPID.SetTunings(kp[fast], ki[fast], kd[fast]);
     while (ch != 's') {
       pid_yaw(d_angle);
       encoder_data0();
       if (encoder_0 > data)
+      {
+        m[0].pwm = m[2].pwm = speed[slow];
+        myPID.SetTunings(kp[slow], ki[slow], kd[slow]);
         line_stop();
+      }
     }
   }
   ////
