@@ -61,6 +61,7 @@ void assign_sequence() {
   angle[6][2] = 180.0;
   angle[6][3] = 270.0;
   //
+  direction[6][1] = 1;
   direction[6][2] = -1;
   //
   steps[6][1] = 900;
@@ -86,6 +87,7 @@ void assign_sequence() {
   angle[7][5] = 270.0;
   //
   direction[7][0] = 1;
+  direction[7][2] = 1;
   direction[7][3] = -1;
   direction[7][5] = 1;
   //
@@ -111,6 +113,7 @@ void assign_sequence() {
   angle[8][4] = 270.0;
   //
   direction[8][0] = 0;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
+  direction[8][1] = 1;
   direction[8][2] = -1;
   direction[8][3] = 1;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
   //
@@ -134,6 +137,7 @@ void assign_sequence() {
   angle[9][4] = 270.0;
   //
   direction[9][0] = 0;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
+  direction[9][1] = 1;
   direction[9][2] = -1;
   direction[9][3] = 1;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
   //
@@ -156,6 +160,7 @@ void assign_sequence() {
   angle[10][3] = 270.0;
   //
   direction[10][1] = 1;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
+  direction[10][2] = 1;
   direction[10][3] = -1;
   direction[10][4] = 0;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
   //
@@ -176,6 +181,7 @@ void assign_sequence() {
   angle[11][2] = 0.0;
   angle[11][3] = 270.0;
   //
+  direction[11][1] = 1;
   direction[11][2] = -1;
   //
   steps[11][1] = 4000;

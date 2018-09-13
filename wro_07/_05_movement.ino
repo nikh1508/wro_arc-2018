@@ -202,7 +202,7 @@ void clamp(int data, int d_angle) {
   analogWrite(m[2].pwm_pin, m[0].pwm);
   //
   myPID.SetTunings(kp[fast], ki[fast], kd[fast]);
-  
+
   while (ch != 's') {
     encoder_data0();
     pid_yaw(d_angle);
@@ -214,7 +214,7 @@ void clamp(int data, int d_angle) {
       pid_set_value = false;
       digitalWrite(a_l, HIGH);
       digitalWrite(b_l, LOW);
-      analogWrite(pwm_l, 150  );
+      analogWrite(pwm_l, 150);
     }
     if (encoder_0 > data + 1600) {
       //      pid_yaw(d_angle);
