@@ -10,7 +10,7 @@ void bno() {
   yaw = yaw - yaw_offset;
   if (yaw < 0.0)
     yaw += 360.0;
-//  Serial.println(yaw);
+  //  Serial.println(yaw);
 }
 ////////////////////
 void pid_yaw(double angle) {
@@ -30,7 +30,15 @@ void pid_yaw(double angle) {
   //  Serial.print("\tRT:" + String(m[0].pwm));
   //  Serial.print("\tYAW:" + String(yaw));
 }
-
+//////////////
+void pid_sideways(double angle) {
+  bno();
+  //
+  input_sideways = diff(yaw, angle);
+  my_sideways.Compute();
+  m[1].pwm = constrain(50 - output_sideways, 0, 255);
+  analogWrite(m[1].pwm_pin, m[1].pwm);
+}
 ///////////
 byte rpm_data[2];
 int rpm = 0, rpm1 = 0;
@@ -51,7 +59,7 @@ void encoder_data0() {
   rpm_data[1] = Wire.read();
   rpm = rpm_data[0];
   rpm = (rpm << 8) | rpm_data[1];
-//  Serial.print(" "); Serial.print(encoder_0); Serial.print(" ");
+  //  Serial.print(" "); Serial.print(encoder_0); Serial.print(" ");
 }
 //////////////////
 void encoder_data1() {

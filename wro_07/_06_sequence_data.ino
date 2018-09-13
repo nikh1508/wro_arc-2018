@@ -8,7 +8,7 @@ void assign_sequence() {
   direction[0][0] = 1;
   direction[0][2] = 1;
   //
-  steps[0][0] = 1500;
+  steps[0][0] = 1800;
   steps[0][2] = 8000;
   //
   angle[0][0] = 0.0;//////
@@ -68,7 +68,7 @@ void assign_sequence() {
   steps[6][2] = -900;
   //
   rotate_direction[6][0] = CW;
-  rotate_direction[6][3] = CCW;
+  rotate_direction[6][3] = CW;
   /////////////////////////////////////////////////////////////
   ///////////////------------>>>>>>>>>>>>>short supply 2
   action[7][0] = 1;
@@ -108,14 +108,16 @@ void assign_sequence() {
   action[8][4] = 3;
   action[8][5] = 0;
   //
+  angle[8][0] = 90.0;
   angle[8][1] = 90.0;
   angle[8][2] = 90.0;
+  angle[8][3] = 90.0;
   angle[8][4] = 270.0;
   //
-  direction[8][0] = 0;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
+  direction[8][0] = 0;
   direction[8][1] = 1;
   direction[8][2] = -1;
-  direction[8][3] = 1;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
+  direction[8][3] = 1;
   //
   steps[8][0] = 2000;
   steps[8][1] = 1800;
@@ -132,14 +134,16 @@ void assign_sequence() {
   action[9][4] = 3;
   action[9][5] = 0;
   //
+  angle[9][0] = 90.0;
   angle[9][1] = 90.0;
   angle[9][2] = 90.0;
+  angle[9][3] = 90.0;
   angle[9][4] = 270.0;
   //
-  direction[9][0] = 0;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
+  direction[9][0] = 0;
   direction[9][1] = 1;
   direction[9][2] = -1;
-  direction[9][3] = 1;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
+  direction[9][3] = 1;
   //
   steps[9][0] = 3000;
   steps[9][1] = 1800;
@@ -156,13 +160,15 @@ void assign_sequence() {
   action[10][5] = 0;
   //
   angle[10][0] = 270.0;
+  angle[10][1] = 270.0;
   angle[10][2] = 270.0;
   angle[10][3] = 270.0;
+  angle[10][4] = 270.0;
   //
-  direction[10][1] = 1;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
+  direction[10][1] = 1;
   direction[10][2] = 1;
   direction[10][3] = -1;
-  direction[10][4] = 0;//////----------------------->>>>>>>>>>>/////////confirm from nikhil
+  direction[10][4] = 0;
   //
   steps[10][1] = 3000;
   steps[10][2] = 1800;

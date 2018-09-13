@@ -31,14 +31,14 @@ void sequnece() {
         else //left
           left_value();
         while (ch != 's')
-          line_stop_prependicular();
+          line_stop_prependicular(angle[index][motion]);
         motion++;
         break;
       }
     case (5): {//sideways
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        sideways(steps[index][motion]);
+        sideways(direction[index][motion], steps[index][motion], angle[index][motion]);
         motion++;
         break;
       }
