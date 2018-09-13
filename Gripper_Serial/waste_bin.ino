@@ -88,14 +88,10 @@
 
 //FIFTH TEST
 void startSequence() {
-  fuse(1500-150, 2200, 400);
-  startStep(1300-150, 2220, -1, -1);
-  fuse(1370-150, 1900, 600);
-  startStep(900-150, 1500, 1200, 1500 );
-  fuse(1600-150, 1100, 700);
-  fuse(1750-150, 1650, 500);
-  Serial.println("waiting to exeute next step.");
-  while(!Serial.available());
-  char ch = Serial.read();
-  arm_cur = 1350;
+  fuse(1300, 2120, 600);
+  fuse(1100, 2110, 300);
+  fuse(1150, 1760, 600); //non-blue
+  fuse(800, 1500, 700);
+  fuse(1700, 1100, 700);
+  fuse(1700, 1500, 500);
 }

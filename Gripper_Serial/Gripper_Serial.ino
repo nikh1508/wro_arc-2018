@@ -110,33 +110,23 @@ void loop() {
     else if (ch == '1') {
       Serial.println("Step-1");
       //      startStep(-1, -1, 1979, 500 );
-      fuse(1500, 2210, 900);
-      startStep(1300, 2210, -1, -1);
+      fuse(1300, 2120, 600);
+      fuse(1100, 2110, 300);
     }
     else if (ch == '2') {
       Serial.println("Step-2");
-      startStep(1290, 1500, -1, -1 );
+      fuse(1135, 1750, 800); //non-blue
     }
     else if (ch == '3') {
       Serial.println("Step-3");
       //startStep(1310, 1200, 1600, 300);
       //      fuse(1270, 1600, 600);//blue
-      fuse(1330, 1900, 600);//non-blue
+      fuse(800, 1500, 700);
     }
     else if (ch == '4') {
       Serial.println("Step-4");
-      //      startStep(1000, 1200, 1300, 1000 );
-      fuse(1000, 1500, 700);
-    }
-    else if (ch == '5') {
-      Serial.println("Step-5");
-      startStep(900, 1500, 1200, 1500 );
-    }
-    else if (ch == '6') {
-      Serial.println("Step-6");
-      //      startStep(1600, 500, 1100, 300 );
-      fuse(1600, 1100, 700);
-      fuse(1600, 1665, 500);
+      fuse(1700, 1100, 700);
+      fuse(1700, 1500, 500);
     }
   }
   changeAngle();
@@ -154,4 +144,3 @@ void loop() {
   //  }
 
 }
-
