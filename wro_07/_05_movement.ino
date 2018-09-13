@@ -144,8 +144,9 @@ void sideways(int dir, int data, double angle) {
     left_value();
   while (ch != 's') {
     pid_sideways(angle);
-    encoder_data0();
-    if (encoder_0 >= data) {
+    encoder_data1();
+    encoder_1 = abs(encoder_1);
+    if (encoder_1 >= data) {
       stop();
       ch = 's';
     }

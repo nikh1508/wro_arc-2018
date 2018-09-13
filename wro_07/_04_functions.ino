@@ -36,7 +36,10 @@ void pid_sideways(double angle) {
   //
   input_sideways = diff(yaw, angle);
   my_sideways.Compute();
-  m[1].pwm = constrain(50 - output_sideways, 0, 255);
+  if (direction[index][motion] > 0)
+    m[1].pwm = constrain(50 - output_sideways, 0, 255);
+  else
+    m[1].pwm = constrain(50 + output_sideways, 0, 255);
   analogWrite(m[1].pwm_pin, m[1].pwm);
 }
 ///////////
