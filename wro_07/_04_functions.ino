@@ -10,7 +10,7 @@ void bno() {
   yaw = yaw - yaw_offset;
   if (yaw < 0.0)
     yaw += 360.0;
-  //  Serial.println(yaw);
+//  Serial.println(yaw);
 }
 ////////////////////
 void pid_yaw(double angle) {
@@ -38,39 +38,34 @@ void encoder_data0() {
   Wire.beginTransmission(adr_encoder_0);
   Wire.write('e');
   Wire.endTransmission();
-  delay(1);
   Wire.requestFrom(adr_encoder_0, 2);
   encode[0] = Wire.read();
   encode[1] = Wire.read();
   encoder_0 = encode[0];
   encoder_0 = (encoder_0 << 8) | encode[1];
-  //  delay(1);
   Wire.beginTransmission(adr_encoder_0);
   Wire.write('p');
   Wire.endTransmission();
-  //  delay(1);
   Wire.requestFrom(adr_encoder_0, 2);
   rpm_data[0] = Wire.read();
   rpm_data[1] = Wire.read();
   rpm = rpm_data[0];
   rpm = (rpm << 8) | rpm_data[1];
+//  Serial.print(" "); Serial.print(encoder_0); Serial.print(" ");
 }
 //////////////////
 void encoder_data1() {
   Wire.beginTransmission(adr_encoder_1);
   Wire.write('e');
   Wire.endTransmission();
-  //  delay(1);
   Wire.requestFrom(adr_encoder_1, 2);
   encode[0] = Wire.read();
   encode[1] = Wire.read();
   encoder_1 = encode[0];
   encoder_1 = (encoder_1 << 8) | encode[1];
-  //  delay(1);
   Wire.beginTransmission(adr_encoder_1);
   Wire.write('p');
   Wire.endTransmission();
-  delay(1);
   Wire.requestFrom(adr_encoder_1, 2);
   rpm_data[0] = Wire.read();
   rpm_data[1] = Wire.read();
@@ -82,17 +77,16 @@ void reset_encoder() {
   Wire.beginTransmission(adr_encoder_0);
   Wire.write('r');
   Wire.endTransmission();
-  //  delay(1);
   encoder_0 = 0;
   //
   Wire.beginTransmission(adr_encoder_1);
   Wire.write('r');
   Wire.endTransmission();
-  //  delay(1);
   encoder_1 = 0;
 }
 ///////////////////////////
 void reset_feedback() {
+  pid_set_value = true;
   reset_encoder();
   dline1 = 0;
   dline2 = 0;

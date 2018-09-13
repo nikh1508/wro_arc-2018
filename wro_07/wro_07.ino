@@ -79,6 +79,7 @@ double time = 0.0;
 ///////////////
 double setpoint, input, output, nwSetpoint, kp[] = {12.5, 13.0}, ki[] = {0.5, 1.5}, kd[] = {3.5, 6.75};
 PID myPID(&input, &output, &setpoint, kp[fast], ki[fast], kd[fast], DIRECT);
+bool pid_set_value = true;
 ////////////////////
 int i, j;
 char ch = '\0';

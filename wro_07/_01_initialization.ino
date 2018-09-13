@@ -31,12 +31,12 @@ void assign_pins() {
 }
 ////////////////////////////////////////
 void line_compare() {
-  compare_1[0] = 425;
-  compare_1[1] = 425;
-  compare_1[2] = 425;
-  compare_1[3] = 425;
-  compare_1[4] = 425;
-  compare_1[5] = 425;
+  compare_1[0] = 450;
+  compare_1[1] = 450;
+  compare_1[2] = 450;
+  compare_1[3] = 450;
+  compare_1[4] = 450;
+  compare_1[5] = 450;
   compare_1[6] = 425;
   compare_1[7] = 425;
   //

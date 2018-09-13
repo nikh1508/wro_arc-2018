@@ -19,24 +19,36 @@ void assign_sequence() {
   //////////rotation via pi
   action[1][0] = 3;
   action[1][1] = 0;
-  angle[1][0] = -180.0;
   //
+  angle[1][0] = 180.0;
+  rotate_direction[1][0] = CCW;
+  ////////////////////////////////
   action[2][0] = 3;
-  action[1][1] = 0;
-  angle[2][0] = -135.0;
+  action[2][1] = 0;
   //
+  rotate_direction[2][0] = CCW;
+  rotate_speed[2][0] = 110;
+  angle[2][0] = 135.0;
+  ////////////////////////////////
   action[3][0] = 3;
-  action[1][1] = 0;
-  angle[3][0] = -45.0;
+  action[3][1] = 0;
   //
+  angle[3][0] = 45.0;
+  rotate_direction[3][0] = CCW;
+  ////////////////////////////////
   action[4][0] = 3;
-  action[1][1] = 0;
-  angle[4][0] = -360.0;
+  action[4][1] = 0;
   //
+  angle[4][0] = 360.0;
+  rotate_direction[4][0] = CCW;
+  rotate_speed[4][0] = 110;
+  ////////////////////////////////
   action[5][0] = 3;
-  action[1][1] = 0;
-  angle[5][0] = 90.0;
+  action[5][1] = 0;
   //
+  rotate_direction[5][0] = CW;
+  angle[5][0] = 90.0;
+  ////////////////////////////////
   ///////////////////////////////////////------->short supply 1
   action[6][0] = 3;
   action[6][1] = 6;
@@ -51,8 +63,12 @@ void assign_sequence() {
   //
   direction[6][2] = -1;
   //
-  steps[6][1] = 1800;
-  steps[6][2] = -1800;
+  steps[6][1] = 900;
+  steps[6][2] = -900;
+  //
+  rotate_direction[6][0] = CW;
+  rotate_direction[6][3] = CCW;
+  /////////////////////////////////////////////////////////////
   ///////////////------------>>>>>>>>>>>>>short supply 2
   action[7][0] = 1;
   action[7][1] = 3;
@@ -78,6 +94,10 @@ void assign_sequence() {
   steps[7][3] = -1800;
   steps[7][5] = 4000;
   //
+  rotate_direction[7][1] = CW;
+  rotate_direction[7][4] = CW;
+  //
+  //////////////////////////////////////////////////
   ////////////////////////////////---------------->>>>>>>>>>>>position 3
   action[8][0] = 5;
   action[8][1] = 6;
@@ -98,6 +118,9 @@ void assign_sequence() {
   steps[8][1] = 1800;
   steps[8][2] = -1800;
   /////////////////////////
+  //
+  rotate_direction[8][4] = CW;
+  //////////////////////////////////////////////
   ////////////////////////////////---------------->>>>>>>>>>>>position 4
   action[9][0] = 5;
   action[9][1] = 6;
@@ -118,6 +141,8 @@ void assign_sequence() {
   steps[9][1] = 1800;
   steps[9][2] = -1800;
   /////////////////////////////
+  rotate_direction[9][4] = CW;
+  ///////////////////////////////////////
   ////////////////////////////////---------------->>>>>>>>>>>>position 5
   action[10][0] = 3;
   action[10][1] = 5;
@@ -137,6 +162,8 @@ void assign_sequence() {
   steps[10][1] = 3000;
   steps[10][2] = 1800;
   steps[10][3] = -1800;
+  //
+  rotate_direction[10][0] = CW;
   /////////////////////////////////
   ////////////////////////////////---------------->>>>>>>>>>>>position 6---delivery chute
   action[11][0] = 3;
@@ -144,13 +171,16 @@ void assign_sequence() {
   action[11][2] = 1;
   action[11][3] = 3;
   //
-  angle[11][0] = -360.0;
-  angle[11][1] = 360.0;
-  angle[11][2] = 360.0;
-  angle[11][3] = -270.0;
+  angle[11][0] = 0.0;
+  angle[11][1] = 0.0;
+  angle[11][2] = 0.0;
+  angle[11][3] = 270.0;
   //
   direction[11][2] = -1;
   //
   steps[11][1] = 4000;
   steps[11][2] = -4000;
+  //
+  rotate_direction[11][0] = CCW;
+  rotate_direction[11][3] = CCW;
 }

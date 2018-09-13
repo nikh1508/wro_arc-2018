@@ -18,35 +18,18 @@ void sequnece() {
     case (3): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        
+        while (ch != 's')
+          rotateTo(angle[index][motion], rotate_direction[index][motion]);
         motion++;
         break;
       }
-    case (4): {
+    case (4): {////line_stop_prependicular
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        if (direction[index][motion] > 0) {//right
-          digitalWrite(m[0].a, LOW);
-          digitalWrite(m[0].b, HIGH);
-          digitalWrite(m[1].a, HIGH);
-          digitalWrite(m[1].b, LOW);
-          digitalWrite(m[2].a, HIGH);
-          digitalWrite(m[2].b, LOW);
-          analogWrite(m[0].pwm_pin, 39);
-          analogWrite(m[1].pwm_pin, 51);
-          analogWrite(m[2].pwm_pin, 38);
-        }
-        else {//left
-          digitalWrite(m[0].a, HIGH);
-          digitalWrite(m[0].b, LOW);
-          digitalWrite(m[1].a, LOW);
-          digitalWrite(m[1].b, HIGH);
-          digitalWrite(m[2].a, LOW);
-          digitalWrite(m[2].b, HIGH);
-          analogWrite(m[0].pwm_pin, 38);
-          analogWrite(m[1].pwm_pin, 50);
-          analogWrite(m[2].pwm_pin, 38);
-        }
+        if (direction[index][motion] > 0) //right
+          right_value();
+        else //left
+          left_value();
         while (ch != 's')
           line_stop_prependicular(direction[index][motion]);
         motion++;
@@ -55,30 +38,7 @@ void sequnece() {
     case (5): {//sideways
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        if (direction[index][motion] > 0) {//right
-          digitalWrite(m[0].a, LOW);
-          digitalWrite(m[0].b, HIGH);
-          digitalWrite(m[1].a, HIGH);
-          digitalWrite(m[1].b, LOW);
-          digitalWrite(m[2].a, HIGH);
-          digitalWrite(m[2].b, LOW);
-          analogWrite(m[0].pwm_pin, 39);
-          analogWrite(m[1].pwm_pin, 51);
-          analogWrite(m[2].pwm_pin, 38);
-        }
-        else {//left
-          digitalWrite(m[0].a, HIGH);
-          digitalWrite(m[0].b, LOW);
-          digitalWrite(m[1].a, LOW);
-          digitalWrite(m[1].b, HIGH);
-          digitalWrite(m[2].a, LOW);
-          digitalWrite(m[2].b, HIGH);
-          analogWrite(m[0].pwm_pin, 38);
-          analogWrite(m[1].pwm_pin, 50);
-          analogWrite(m[2].pwm_pin, 38);
-        }
-        while (ch != 's')
-          sideways(steps[index][motion]);
+        sideways(steps[index][motion]);
         motion++;
         break;
       }

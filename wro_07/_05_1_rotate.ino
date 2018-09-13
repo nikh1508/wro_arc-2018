@@ -16,7 +16,7 @@ double abs1(double x) {
   else return x;
 }
 
-void rotateTo(double angle, int dir, int ROT_SPEED=95) {
+void rotateTo(double angle, int dir, int ROT_SPEED = 100) {
   initialSpeed = rotationSpeed = ROT_SPEED;
   angle = abs1(angle);
   switch (dir) {
@@ -37,26 +37,27 @@ void rotateTo(double angle, int dir, int ROT_SPEED=95) {
       digitalWrite(m[2].b, HIGH);
       break;
   }
-  delay(50);
-  encoder_data0();
-  encoder_data1();
+//  delay(50);
+//  encoder_data0();
+//  encoder_data1();
   bno();
-//  Serial.println("here");
+  //  Serial.println("here");
   long long last_time = millis();
   while (abs1(diff(angle, yaw)) > 1.0) {
-    Serial.println(yaw);
+//    Serial.println(yaw);
     bno();
-    encoder_data0();
-    encoder_data1();
+//    encoder_data0();
+//    encoder_data1();
     analogWrite(m[0].pwm_pin, rotationSpeed);
     analogWrite(m[1].pwm_pin, rotationSpeed);
     analogWrite(m[2].pwm_pin, rotationSpeed);
     rotationSpeed = sin( abs1(diff(angle, yaw)) / 180.0 * 3.14) * initialSpeed;
-//    delay(2);
+    //    delay(2);
   }
 
   stop();
-//  rotate_desired = angle;
+  ch='s';
+  //  rotate_desired = angle;
   bno();
-//  Serial.println("Current YAW::"+String(yaw));
+  //  Serial.println("Current YAW::"+String(yaw));
 }

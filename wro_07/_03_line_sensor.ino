@@ -16,6 +16,7 @@ void line_stop() {
   if (dline1 == 6) {
     stop();
     ch = 's';
+//    Serial.println("line stop");
   }
   else
     dline1 = 0;
