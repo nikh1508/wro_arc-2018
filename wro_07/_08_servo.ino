@@ -1,3 +1,4 @@
+bool detached = false;
 void gripper_call() {
   //  stop();
   //  ch = 's';
@@ -21,6 +22,12 @@ void reset_gripper() {
 void fuse(int arm, int gripper, int time) {
   //  Serial.println(gripper);
   //  Serial.println(time);
+  if (detached) {
+    detached = false;
+    ::gripper.attach(grip_pin, 750, 2250);
+    ::arm.attach(arm_pin, 750, 2250);
+    reset_gripper();
+  }
   float gripper_diff = abs(gripper_last - gripper);
   float arm_diff = abs(arm_last - arm);
   float arm_new = arm_last, gripper_new = gripper_last;
@@ -87,4 +94,11 @@ void servo_camera() {
   //
   if (state_sqc_pin == 1 && index == 106)
     camera.writeMicroseconds(980);
+}
+
+void retract() {
+  fuse(2250, 750, 800);
+  detached = true;
+  arm.detach();
+  gripper.detach();
 }

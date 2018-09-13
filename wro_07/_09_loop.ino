@@ -1,5 +1,33 @@
 void loop() {
-  sequnece();
-  servo_camera();
-
+//  sequnece();
+//  servo_camera();
+retract();
+Serial.println("NOW :: " + String(180));
+rotateTo(180, CW);
+delay(500);
+Serial.println("NOW :: " + String(360));
+rotateTo(360, CW);
+delay(500);
+Serial.println("NOW :: " + String(315));
+rotateTo(315, CCW);
+delay(500);
+Serial.println("NOW :: " + String(225));
+rotateTo(225, CCW);
+delay(500);
+Serial.println("NOW :: " + String(135));
+rotateTo(135, CCW);
+delay(500);
+Serial.println("NOW :: " + String(0));
+rotateTo(0, CCW);
+delay(500);
+Serial.println("NOW :: " + String(45));
+rotateTo(45, CW);
+delay(500);
+Serial.println("NOW :: " + String(225));
+rotateTo(225, CW);
+delay(500);
+Serial.println("NOW :: " + String(360));
+rotateTo(360, CW);
+delay(500);
+while(1);
 }
