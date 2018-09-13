@@ -31,7 +31,7 @@ void sequnece() {
         else //left
           left_value();
         while (ch != 's')
-          line_stop_prependicular(direction[index][motion]);
+          line_stop_prependicular();
         motion++;
         break;
       }

@@ -180,7 +180,7 @@ void right_value() {
   digitalWrite(m[1].b, LOW);
   digitalWrite(m[2].a, HIGH);
   digitalWrite(m[2].b, LOW);
-  analogWrite(m[0].pwm_pin, 39);
+  analogWrite(m[0].pwm_pin, 42);
   analogWrite(m[1].pwm_pin, 51);
   analogWrite(m[2].pwm_pin, 38);
 }

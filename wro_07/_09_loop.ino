@@ -1,7 +1,8 @@
 void loop() {
-//  sequnece();
-//  servo_camera();
-right_value();
-line_stop_prependicular(1);
-while(1);
+  //  sequnece();
+  //  servo_camera();
+  left_value();
+  while (ch != 's')
+    line_stop_prependicular();
+  while (1);
 }

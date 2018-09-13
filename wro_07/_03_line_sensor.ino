@@ -72,28 +72,22 @@ void input_line_prependicular() {
   line_data2[7] = analogRead(A9);
   ///////////////////
   ///////////////////
-  for (i = 2; i < 8; i++) {
+  for (i = 0; i < 8; i++) {
     line_data2[i] >= compare_2[i] ? dline_data_2[i] = 1 : dline_data_2[i] = 0;
+    Serial.println(line_data2[i]);
   }
 }
 ///////////////////
 ///////////////////
-int sideShift[] = {80, 0};
-//
-void line_stop_prependicular(int dir) {
+void line_stop_prependicular() {
   input_line_prependicular();
-  for (i = 2; i < 8; i++) {
+  for (i = 0; i < 8; i++) {
     dline2 += dline_data_2[i];
   }
   if (dline2 >= 5) {
-    reset_encoder();
-    encoder_data1();
-    int lastEncCounts = encoder_1;
-    while (abs(lastEncCounts - encoder_1) < sideShift[dir]) {
-      encoder_data1();
-    }
     stop();
     ch = 's';
+    Serial.println(dline2);
   }
   else
     dline2 = 0;
