@@ -1,6 +1,7 @@
 void loop() {
-  sequnece();
-  servo_camera();
-  //  clamp(1000, 0.0);
-  //  while(1);
+//  sequnece();
+//  servo_camera();
+right_value();
+line_stop_prependicular(1);
+while(1);
 }

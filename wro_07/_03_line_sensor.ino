@@ -16,7 +16,7 @@ void line_stop() {
   if (dline1 == 6) {
     stop();
     ch = 's';
-//    Serial.println("line stop");
+    //    Serial.println("line stop");
   }
   else
     dline1 = 0;
@@ -39,7 +39,7 @@ void input_line_prependicular() {
   digitalWrite(s1, HIGH);
   digitalWrite(s2, LOW);
   digitalWrite(s3, HIGH);
-  line_data2[2] = analogRead(A9);
+  line_data2[2] = analogRead(A9);/////---------->>>>form this point
   //
   digitalWrite(s0, HIGH);
   digitalWrite(s1, HIGH);
@@ -72,7 +72,7 @@ void input_line_prependicular() {
   line_data2[7] = analogRead(A9);
   ///////////////////
   ///////////////////
-  for (i = 0; i < 8; i++) {
+  for (i = 2; i < 8; i++) {
     line_data2[i] >= compare_2[i] ? dline_data_2[i] = 1 : dline_data_2[i] = 0;
   }
 }
@@ -82,10 +82,11 @@ int sideShift[] = {80, 0};
 //
 void line_stop_prependicular(int dir) {
   input_line_prependicular();
-  for (i = 0; i < 8; i++) {
+  for (i = 2; i < 8; i++) {
     dline2 += dline_data_2[i];
   }
-  if (dline2 >= 7) {
+  if (dline2 >= 5) {
+    reset_encoder();
     encoder_data1();
     int lastEncCounts = encoder_1;
     while (abs(lastEncCounts - encoder_1) < sideShift[dir]) {

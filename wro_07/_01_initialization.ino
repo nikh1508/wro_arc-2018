@@ -40,14 +40,14 @@ void line_compare() {
   compare_1[6] = 425;
   compare_1[7] = 425;
   //
-  compare_2[0] = 792;
-  compare_2[1] = 771;
-  compare_2[2] = 814;
-  compare_2[3] = 721;
-  compare_2[4] = 723;
-  compare_2[5] = 780;
-  compare_2[6] = 755;
-  compare_2[7] = 799;
+  compare_2[0] = 500;
+  compare_2[1] = 500;
+  compare_2[2] = 500;
+  compare_2[3] = 500;
+  compare_2[4] = 500;
+  compare_2[5] = 500;
+  compare_2[6] = 500;
+  compare_2[7] = 500;
 }
 ////////////////////////////////////////
 void declaration() {
