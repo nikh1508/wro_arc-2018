@@ -80,7 +80,7 @@ void dump_error(int enc0=400,int enc1=400,double angle = 270.0) {
 }
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
-void goto_stacking(int enc0, int enc1, int dir, double angle = 270.0) {
+void goto_stacking(int enc0, int enc1, int dir, double angle = 270.0) {/////////dir 1-->right.....dir 2-->left
   reset_feedback();
   ///////////----->>>forward
   digitalWrite(m[0].a, HIGH);
