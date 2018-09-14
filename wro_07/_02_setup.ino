@@ -8,10 +8,10 @@ void setup() {
   assign_sequence();
   camera.attach(camera_pin, 750, 2250);
   camera.writeMicroseconds(900);
-  gripper.attach(grip_pin, 750, 2250);
-  arm.attach(arm_pin, 750, 2250);
-  gripper.writeMicroseconds(GRIPPER_INIT);
-  arm.writeMicroseconds(ARM_INIT);
+//  gripper.attach(grip_pin, 750, 2250);
+//  arm.attach(arm_pin, 750, 2250);
+//  gripper.writeMicroseconds(GRIPPER_INIT);
+//  arm.writeMicroseconds(ARM_INIT);
   //
   setpoint = 0.0;
   myPID.SetOutputLimits(-255, 255);
@@ -22,6 +22,6 @@ void setup() {
   bno_initialize();
   reset_feedback();
   retract();
-  base_start();
+//  base_start();////////////////////////////---------------->>>>>comment this to test in loop
   reset_feedback();
 }

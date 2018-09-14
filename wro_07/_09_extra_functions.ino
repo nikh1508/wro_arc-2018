@@ -1,4 +1,4 @@
-void dump_error() {
+void dump_error(int enc0=400,int enc1=400,double angle = 270.0) {
   reset_feedback();
   /////---->backward till encoder
   digitalWrite(m[0].a, LOW);
@@ -19,10 +19,10 @@ void dump_error() {
   myPID.SetTunings(kp[slow], ki[slow], kd[slow]);
   /////
   while (ch != 's') {
-    false_pid(270.0, 0);
+    false_pid(angle, 0);
     encoder_data0();
     encoder_0 = abs(encoder_0);
-    if (encoder_0 >= 400) {
+    if (encoder_0 >= enc0) {
       stop();
       ch = 's';
     }
@@ -45,7 +45,7 @@ void dump_error() {
   //
   myPID.SetTunings(kp[slow], ki[slow], kd[slow]);
   while (ch != 's') {
-    false_pid(270.0, 1);
+    false_pid(angle, 1);
     line_stop();
   }
   ch = '\0';
@@ -53,10 +53,10 @@ void dump_error() {
   /////////////////////////////////////////////////////
   left_value();
   while (ch != 's') {
-    false_pid_sideways(270.0, 0);
+    false_pid_sideways(angle, 0);
     encoder_data1();
     encoder_1 = abs(encoder_1);
-    if (encoder_1 >= 400) {
+    if (encoder_1 >= enc1) {
       stop();
       ch = 's';
     }
@@ -64,7 +64,7 @@ void dump_error() {
   ch = '\0';
   right_value();
   while (ch != 's') {
-    false_pid_sideways(270.0, 1);
+    false_pid_sideways(angle, 1);
     input_line_prependicular();
     for (i = 2; i < 8; i++) {
       dline2 += dline_data_2[i];
@@ -80,7 +80,7 @@ void dump_error() {
 }
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
-void goto_stacking(int enc0, int enc1, int dir) {
+void goto_stacking(int enc0, int enc1, int dir, double angle = 270.0) {
   reset_feedback();
   ///////////----->>>forward
   digitalWrite(m[0].a, HIGH);
@@ -99,7 +99,7 @@ void goto_stacking(int enc0, int enc1, int dir) {
   /////
   myPID.SetTunings(kp[slow], ki[slow], kd[slow]);
   while (ch != 's') {
-    false_pid(270.0, 1);
+    false_pid(angle, 1);
     encoder_data0();
     encoder_0 = abs(encoder_0);
     if (encoder_0 >= enc0) {
@@ -114,7 +114,7 @@ void goto_stacking(int enc0, int enc1, int dir) {
     left_value();
   /////////////////
   while (ch != 's') {
-    false_pid_sideways(270.0, dir);
+    false_pid_sideways(angle, dir);
     encoder_data1();
     encoder_1 = abs(encoder_1);
     if (encoder_1 >= enc1) {

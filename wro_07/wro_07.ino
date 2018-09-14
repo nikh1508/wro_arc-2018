@@ -112,3 +112,4 @@ double angle[20][20] = {0};
 int action[20][20] = {0};
 int rotate_direction[20][20] = {0};
 //int rotate_speed[20][20] = {0};
+void dump_error(double angle = 270.0);
