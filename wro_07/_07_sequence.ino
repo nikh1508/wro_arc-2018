@@ -49,6 +49,12 @@ void sequnece() {
         motion++;
         break;
       }
+    case (7): {
+        digitalWrite(sqc_pin, LOW);
+        dump_error();
+        motion++;
+        break;
+      }
     case (0): {
         stop();
         digitalWrite(sqc_pin, HIGH);

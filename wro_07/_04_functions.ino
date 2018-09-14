@@ -18,9 +18,9 @@ void pid_yaw(double angle) {
   input = diff(yaw, angle);
   //  Serial.println(input);
   myPID.Compute();
-  if (direction[index][motion] == 1)
+  if (direction[index][motion] == 1)//forward
     m[2].pwm = constrain(m[0].pwm + output, 0, 255);
-  else
+  else//backward
     m[2].pwm = constrain(m[0].pwm - output, 0, 255);
   analogWrite(m[2].pwm_pin, m[2].pwm);
   //  Serial.print("SET:" + String(setpoint));
@@ -39,6 +39,30 @@ void pid_sideways(double angle) {
   if (direction[index][motion] > 0)
     m[1].pwm = constrain(50 - output_sideways, 0, 255);
   else
+    m[1].pwm = constrain(50 + output_sideways, 0, 255);
+  analogWrite(m[1].pwm_pin, m[1].pwm);
+}
+/////////////////////////////////////////
+//////////////////////////////////////////
+void false_pid(double angle, int dir) { /////////////////---------------->>>>>>>>>>dont pay attantion to this
+  bno();
+  input = diff(yaw, angle);
+  myPID.Compute();
+  if (dir == 1) //forward
+    m[2].pwm = constrain(m[0].pwm + output, 0, 255);
+  else//backward
+    m[2].pwm = constrain(m[0].pwm - output, 0, 255);
+  analogWrite(m[2].pwm_pin, m[2].pwm);
+}
+/////////////////////////////////////////
+///////////////////////////////////////
+void false_pid_sideways(double angle, int dir) {
+  bno();
+  input_sideways = diff(yaw, angle);
+  my_sideways.Compute();
+  if (dir > 0)//right
+    m[1].pwm = constrain(50 - output_sideways, 0, 255);
+  else//left
     m[1].pwm = constrain(50 + output_sideways, 0, 255);
   analogWrite(m[1].pwm_pin, m[1].pwm);
 }

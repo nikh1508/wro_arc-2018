@@ -88,7 +88,7 @@ bool pid_set_value = true;
 int i, j;
 char ch = '\0';
 int sqc = 1;
-int sqc_pin = 18;
+int sqc_pin = A15;
 ////////////////////
 byte encode[6];
 volatile int encoder_0 = 0;
@@ -111,4 +111,4 @@ int steps[20][20] = {0};
 double angle[20][20] = {0};
 int action[20][20] = {0};
 int rotate_direction[20][20] = {0};
-int rotate_speed[20][20] = {0};
+//int rotate_speed[20][20] = {0};

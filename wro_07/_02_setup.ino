@@ -21,4 +21,7 @@ void setup() {
   my_sideways.SetMode(AUTOMATIC);
   bno_initialize();
   reset_feedback();
+  retract();
+  base_start();
+  reset_feedback();
 }

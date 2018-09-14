@@ -15,7 +15,7 @@ void assign_pins() {
   line2[4] = A12;
   line2[5] = A13;
   line2[6] = A14;
-  line2[7] = A15;
+  //  line2[7] = A15;
   //
   m[0].a = m0_a;
   m[0].b = m0_b;
@@ -94,7 +94,7 @@ void declaration() {
   pinMode(A12, INPUT);
   pinMode(A13, INPUT);
   pinMode(A14, INPUT);
-  pinMode(A15, INPUT);
+  //  pinMode(A15, INPUT);
 }
 //////
 void bno_initialize() {
@@ -116,4 +116,25 @@ void bno_initialize() {
   yaw_offset /= 800.0;
   //
   Serial.println(yaw_offset);
+}
+//////////////////////////
+void base_start() {
+  digitalWrite(m[0].a, HIGH);
+  digitalWrite(m[0].b, LOW);
+  //
+  digitalWrite(m[1].a, LOW);
+  digitalWrite(m[1].b, HIGH);
+  //
+  analogWrite(m[0].pwm_pin, 40);
+  analogWrite(m[1].pwm_pin, 40);
+  while (ch != 's') {
+    encoder_data0();
+    encoder_data1();
+    encoder_0 = abs(encoder_0);
+    encoder_1 = abs(encoder_1);
+    if (encoder_0 >= 400 && encoder_1 >= 400) {
+      stop();
+      ch = 's';
+    }
+  }
 }

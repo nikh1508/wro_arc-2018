@@ -52,7 +52,7 @@ void rotateTo(double angle, int dir, int ROT_SPEED = 130) {
     //    Serial.println(yaw);
     bno();
     currentDiff = abs1(diff(angle, yaw));
-    if (currentDiff < (initialDiff / 2.0) && millis() - last_time > 50) {
+    if (currentDiff < (initialDiff / 2.0) && millis() - last_time > 100) {
       last_time = millis();
       encoder_data0();
       encoder_data1();
