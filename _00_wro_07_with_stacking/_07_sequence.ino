@@ -60,6 +60,7 @@ void sequnece() {
     case (8): {
         digitalWrite(sqc_pin, LOW);
         blue_orange();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -68,6 +69,7 @@ void sequnece() {
     case (9): {
         digitalWrite(sqc_pin, LOW);
         blue_red();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -76,6 +78,7 @@ void sequnece() {
     case (10): {
         digitalWrite(sqc_pin, LOW);
         blue_dblue____yellow_dblue();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -84,6 +87,7 @@ void sequnece() {
     case (11): {
         digitalWrite(sqc_pin, LOW);
         yellow_orange();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -92,6 +96,7 @@ void sequnece() {
     case (12): {
         digitalWrite(sqc_pin, LOW);
         blue_dblue____yellow_dblue();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -100,6 +105,7 @@ void sequnece() {
     case (13): {
         digitalWrite(sqc_pin, LOW);
         orange_red____dblue_red();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -108,6 +114,7 @@ void sequnece() {
     case (14): {
         digitalWrite(sqc_pin, LOW);
         green_red____orange_dblue();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -116,6 +123,7 @@ void sequnece() {
     case (15): {
         digitalWrite(sqc_pin, LOW);
         orange_green____dblue_green();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -124,6 +132,7 @@ void sequnece() {
     case (16): {
         digitalWrite(sqc_pin, LOW);
         red_green____dblue_orange();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -132,6 +141,7 @@ void sequnece() {
     case (17): {
         digitalWrite(sqc_pin, LOW);
         orange_red____dblue_red();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -140,6 +150,7 @@ void sequnece() {
     case (18): {
         digitalWrite(sqc_pin, LOW);
         orange_green____dblue_green();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -148,6 +159,7 @@ void sequnece() {
     case (19): {
         digitalWrite(sqc_pin, LOW);
         green_red____orange_dblue();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -156,6 +168,7 @@ void sequnece() {
     case (20): {
         digitalWrite(sqc_pin, LOW);
         green_blue_left();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -164,6 +177,7 @@ void sequnece() {
     case (21): {
         digitalWrite(sqc_pin, LOW);
         green_blue_right();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -172,6 +186,7 @@ void sequnece() {
     case (22): {
         digitalWrite(sqc_pin, LOW);
         red_green____dblue_orange();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -180,6 +195,7 @@ void sequnece() {
     case (23): {
         digitalWrite(sqc_pin, LOW);
         green_blue_left();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -188,6 +204,7 @@ void sequnece() {
     case (24): {
         digitalWrite(sqc_pin, LOW);
         green_blue_right();
+        changeAngle();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
