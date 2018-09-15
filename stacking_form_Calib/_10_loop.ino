@@ -329,7 +329,7 @@ void loop() {
       delay(100);
       move_encoder_only(0, 3000, 0);
     }
-    else if (ch == '!') {//ORANGE-SEQ -- RED
+    else if (ch == '!') {//ORANGE-SEQ -- RED //D_BLUE-SEQ -- RED
       fuse(1700, 1100, 600);
       delay(100);
       dump_error(400, 400, 0);
@@ -361,7 +361,7 @@ void loop() {
       delay(100);
       move_encoder_only(0, 3000, 0);
     }
-    else if (ch == '@') { //ORANGE-SEQ -- GREEN
+    else if (ch == '@') { //ORANGE-SEQ -- GREEN //D_BLUE-SEQ -- GREEN
       fuse(1700, 1100, 600);
       delay(100);
       dump_error(400, 400, 0);
