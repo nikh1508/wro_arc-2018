@@ -110,18 +110,18 @@ void loop() {
     else if (ch == '1') {
       Serial.println("Step-1");
       //      startStep(-1, -1, 1979, 500 );
-      fuse(1300, 2120, 600);
-      fuse(1100, 2110, 300);
+      fuse(1300, 2110, 600);
+      fuse(1100, 2100, 300);
     }
     else if (ch == '2') {
       Serial.println("Step-2");
-      fuse(1135, 1750, 800); //non-blue
+      fuse(1155, 1780, 800); //non-blue
     }
     else if (ch == '3') {
       Serial.println("Step-3");
       //startStep(1310, 1200, 1600, 300);
       //      fuse(1270, 1600, 600);//blue
-      fuse(800, 1500, 700);
+      fuse(775, 1500, 700);
     }
     else if (ch == '4') {
       Serial.println("Step-4");
