@@ -215,7 +215,7 @@ void loop() {
       delay(100);
       move_encoder_only(0, 3000, 0);
     }
-    else if (ch == 'P') { //GREEN-SEQ -- RED
+    else if (ch == 'P') { //GREEN-SEQ -- RED    //ORANGE-SEQ -- D-BLUE
       fuse(1700, 1100, 600);
       delay(100);
       dump_error(400, 400, 0);
@@ -244,7 +244,9 @@ void loop() {
       detached = true;
       delay(100);
       move_encoder_only(1, 200, 0);
-      delay(50);
+      delay(100);
+      sideways(1, 100, 0);
+      delay(100);
       move_encoder_only(0, 3000, 0);
     }
     else if (ch == 'Q') { //GREEN-SEQ -- BLUE_LEFT
@@ -273,7 +275,7 @@ void loop() {
       delay(100);
       move_encoder_only(0, 3000, 0);
     }
-    else if (ch == 'R') { //GREEN-SEQ -- BLUE_RIGHT
+    else if (ch == 'O') { //GREEN-SEQ -- BLUE_RIGHT
       fuse(1900, 1100, 600);
       delay(100);
       dump_error(400, 400, 0);
@@ -294,6 +296,104 @@ void loop() {
       delay(100);
       gripper.detach();
       detached = true;
+      delay(100);
+      move_encoder_only(0, 3000, 0);
+    }
+    else if (ch == '~') { //RED-SEQ -- GREEN    //D_BLUE-SEQ - ORANGE
+      fuse(1700, 1100, 600);
+      delay(100);
+      dump_error(400, 400, 0);
+      delay(100);
+      move_encoder_only(1, 2800, 0);
+      delay(100);
+      dump_error(400, 400, 0, 1);
+      delay(100);
+      sideways(0, 150, 0);
+      delay(100);
+      fuse(1700, 1640, 800);
+      delay(100);
+      move_encoder_only(1, 370, 0);
+      delay(100);
+      int x = 1265;
+      int arm_change = x - arm_cur;
+      //      int temp = (0.26 * float(arm_change));
+      //      temp += + gripper_cur;
+      fuse(x, 0.26 * float(arm_change) + gripper_cur, ((abs(arm_change)) / 100) * 250);
+      delay(100);
+      sideways(0, 350, 0);
+      delay(100);
+      move_encoder_only(1, 30, 0);
+      delay(100);
+      gripper.detach();
+      detached = true;
+      delay(100);
+      move_encoder_only(0, 3000, 0);
+    }
+    else if (ch == '!') {//ORANGE-SEQ -- RED
+      fuse(1700, 1100, 600);
+      delay(100);
+      dump_error(400, 400, 0);
+      delay(100);
+      move_encoder_only(1, 2800, 0);
+      delay(100);
+      dump_error(400, 400, 0, 1);
+      delay(100);
+      sideways(1, 150, 0);
+      delay(100);
+      fuse(1700, 1640, 800);
+      delay(100);
+      move_encoder_only(1, 370, 0);
+      delay(100);
+      int x = 1265;
+      int arm_change = x - arm_cur;
+      //      int temp = (0.26 * float(arm_change));
+      //      temp += + gripper_cur;
+      fuse(x, 0.26 * float(arm_change) + gripper_cur, ((abs(arm_change)) / 100) * 250);
+      delay(100);
+      sideways(0, 150, 0);
+      delay(100);
+      gripper.detach();
+      detached = true;
+      delay(100);
+      move_encoder_only(1, 30, 0);
+      delay(100);
+      sideways(0, 80, 0);
+      delay(100);
+      move_encoder_only(0, 3000, 0);
+    }
+    else if (ch == '@') { //ORANGE-SEQ -- GREEN
+      fuse(1700, 1100, 600);
+      delay(100);
+      dump_error(400, 400, 0);
+      delay(100);
+      move_encoder_only(1, 2800, 0);
+      delay(100);
+      dump_error(400, 400, 0, 1);
+      delay(100);
+      sideways(1, 750, 0);
+      delay(100);
+      fuse(1700, 1500, 800);
+      delay(100);
+      move_encoder_only(1, 370, 0);
+      delay(100);
+      //      sideways(1, 360, 0);
+      //      delay(100);
+      fuse(1700, 1640, 800);
+      delay(100);
+      int x = 1265;
+      int arm_change = x - arm_cur;
+      //      int temp = (0.26 * float(arm_change));
+      //      temp += + gripper_cur;
+      fuse(x, 0.26 * float(arm_change) + gripper_cur, ((abs(arm_change)) / 100) * 250);
+      delay(100);
+      sideways(1, 50, 0);
+      delay(100);
+      gripper.detach();
+      detached = true;
+      delay(100);
+      move_encoder_only(1, 100, 0);
+      delay(50);
+      sideways(1, 30, 0);
       delay(100);
       move_encoder_only(0, 3000, 0);
     }
