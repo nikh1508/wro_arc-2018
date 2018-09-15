@@ -3,7 +3,7 @@ from time import sleep
 import threading
 import serial
 
-ser = serial.Serial(port='/dev/ttyS0', baudrate=115200)
+ser = serial.Serial(port='/dev/ttyS0', baudrate=9600)
 
 def sendData(ch, val):
         data = []
