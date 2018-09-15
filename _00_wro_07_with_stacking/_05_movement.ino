@@ -68,6 +68,7 @@ void move(int n, int data, int d_angle) {
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 void move_encoder_only(int n, int data, int d_angle) {
+  reset_feedback();
   encoder_data0();
   int last_encoder_count = encoder_0;
   ch = '\0';
@@ -89,7 +90,7 @@ void move_encoder_only(int n, int data, int d_angle) {
     analogWrite(m[2].pwm_pin, m[0].pwm);
     myPID.SetTunings(kp[slow], ki[slow], kd[slow]);
     while (ch != 's') {
-      pid_yaw(d_angle, 1);
+      false_pid(d_angle, 1);
       encoder_data0();
       //      Serial.println(encoder_0);
       if (abs(encoder_0 - last_encoder_count) >= data) {
@@ -118,9 +119,9 @@ void move_encoder_only(int n, int data, int d_angle) {
     analogWrite(m[2].pwm_pin, m[0].pwm);
     myPID.SetTunings(kp[slow], ki[slow], kd[slow]);
     while (ch != 's') {
-      pid_yaw(d_angle);
+      false_pid(d_angle, 0);
       encoder_data0();
-      pid_yaw(d_angle, 0);
+      false_pid(d_angle, 0);
       encoder_data0();
       if (encoder_0 == -1) continue;
       if (abs(encoder_0 - last_encoder_count) >= data) {
@@ -135,6 +136,7 @@ void move_encoder_only(int n, int data, int d_angle) {
 int encoder0_offset = 0;
 ///////////////////////////
 void sideways(int dir, int data, double angle) {
+  reset_feedback();
   encoder_data0();
   encoder_data1();
   int last_encoder_count0 = encoder_0;
@@ -149,7 +151,7 @@ void sideways(int dir, int data, double angle) {
     left_value();
   }
   while (ch != 's') {
-    pid_sideways(angle);
+    pid_sideways(angle, dir);
     encoder_data1();
     //    Serial.println(encoder_1);
     if (abs(encoder_1 - last_encoder_count1) >= data) {

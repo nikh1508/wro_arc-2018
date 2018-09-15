@@ -13,12 +13,12 @@ void bno() {
   //  Serial.println(yaw);
 }
 ////////////////////
-void pid_yaw(double angle, int dir = 1) {
+void pid_yaw(double angle) {
   bno();
   input = diff(yaw, angle);
   //  Serial.println(input);
   myPID.Compute();
-  if (dir == 1)//forward
+  if (direction[index][motion] == 1)//forward
     m[2].pwm = constrain(m[0].pwm + output, 0, 255);
   else//backward
     m[2].pwm = constrain(m[0].pwm - output, 0, 255);
@@ -31,17 +31,19 @@ void pid_yaw(double angle, int dir = 1) {
   //  Serial.print("\tYAW:" + String(yaw));
 }
 //////////////
-void pid_sideways(double angle) {
+void pid_sideways(double angle,int dir) {
   bno();
   //
   input_sideways = diff(yaw, angle);
   my_sideways.Compute();
-  if (direction[index][motion] > 0)
+  if (dir > 0)
     m[1].pwm = constrain(50 - output_sideways, 0, 255);
   else
     m[1].pwm = constrain(50 + output_sideways, 0, 255);
   analogWrite(m[1].pwm_pin, m[1].pwm);
 }
+//////////////////
+
 /////////////////////////////////////////
 //////////////////////////////////////////
 void false_pid(double angle, int dir) { /////////////////---------------->>>>>>>>>>dont pay attantion to this

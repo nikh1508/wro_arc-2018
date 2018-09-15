@@ -79,8 +79,8 @@ void input_line_prependicular() {
 }
 ///////////////////
 ///////////////////
-void line_stop_prependicular(double angle) {
-  pid_sideways(angle);
+void line_stop_prependicular(double angle,int dir) {
+  pid_sideways(angle,dir);
   //////////////////////////
   input_line_prependicular();
   for (i = 2; i < 8; i++) {
