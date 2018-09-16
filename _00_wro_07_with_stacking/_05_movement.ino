@@ -292,7 +292,8 @@ void return_base() {
 }
 //////////////////////
 void delivery_clamp() {
-  move_encoder_only(1, 4800, 0);
+  move_encoder_only(1, 5700, 0);
+  dump_error(800, 800, 0.0, 1);
   delay(3000);
-  clamp(200, 0.0);
+  clamp(250, 0.0);
 }
