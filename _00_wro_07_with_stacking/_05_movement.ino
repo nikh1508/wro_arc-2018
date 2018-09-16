@@ -167,15 +167,15 @@ void sideways(int dir, int data, double angle, bool timeOut_enabled = false) {
     pid_sideways(angle, dir);
     encoder_data1();
     //    Serial.println(encoder_1);
-        if (millis() - timeOut_prev > 2000 && timeOut_enabled) { ////////////edited
-          timeOut_prev = millis(); ////////////edited
-          if (timeOut_Enc1 == encoder_1) { ////////////edited
-            stop();////////////edited
-            ch = 's'; ////////////edited
-            Serial.println("SIDEWAYS TIMEOUT");
-          }////////////edited
-          timeOut_Enc1 = encoder_1;
-        }////////////edited
+    if (millis() - timeOut_prev > 2000 && timeOut_enabled) { ////////////edited
+      timeOut_prev = millis(); ////////////edited
+      if (timeOut_Enc1 == encoder_1) { ////////////edited
+        stop();////////////edited
+        ch = 's'; ////////////edited
+        Serial.println("SIDEWAYS TIMEOUT");
+      }////////////edited
+      timeOut_Enc1 = encoder_1;
+    }////////////edited
     //
     if (abs(encoder_1 - last_encoder_count1) >= data) {
       Serial.println("ENC1 :: " + String(encoder_1));
@@ -231,6 +231,7 @@ void right_value() {
 //////////////////////////////
 void clamp(int data, int d_angle) {
   reset_gripper();
+  reset_feedback();
   digitalWrite(m[0].a, HIGH);
   digitalWrite(m[0].b, LOW);
   //1///
@@ -284,10 +285,10 @@ void return_base() {
   gripper.detach();
   move_encoder_only(1, 15000, 90.0);
   delay(200);
-  sideways(1, 4800, 90.0,true);
+  sideways(1, 4800, 90.0, true);
   move_encoder_only(1, 3000, 90.0);
-  while(1);
-  
+  while (1);
+
 }
 //////////////////////
 void delivery_clamp() {
