@@ -266,8 +266,8 @@ void clamp(int data, int d_angle) {
       digitalWrite(b_l, HIGH);
       analogWrite(pwm_l, 210);
       stop();
-      fuse(1350, 2110, 600);
-      fuse(1100, 2100, 300);
+      fuse(1400, 2100, 600);
+      fuse(1100, 2090, 300);
       digitalWrite(a_l, LOW);
       digitalWrite(b_l, LOW);
       analogWrite(pwm_l, 0);

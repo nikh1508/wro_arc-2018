@@ -33,11 +33,11 @@ void loop() {
       fuse(x, 0.26 * float(arm_change) + gripper_cur, ((abs(arm_change)) / 100) * 250);
       Serial.println("GRIPPER [Q-Mot]:: " + String(temp));
     }
-    else if (ch == '1') {
+     else if (ch == '1') {
       Serial.println("Step-1");
       //      startStep(-1, -1, 1979, 500 );
-      fuse(1350, 2110, 600);
-      fuse(1100, 2100, 300);
+      fuse(1400, 2100, 600);
+      fuse(1100, 2090, 300);
     }
     else if (ch == '2') {
       Serial.println("Step-2");
@@ -234,7 +234,7 @@ void loop() {
       delay(100);
       sideways(1, 600, 0);
       delay(100);
-      int x = 1265;
+      int x = 1250;
       int arm_change = x - arm_cur;
       //      int temp = (0.26 * float(arm_change));
       //      temp += + gripper_cur;
@@ -348,7 +348,7 @@ void loop() {
       delay(100);
       //      move_encoder_only(1, 200, 0);
       //      delay(100);
-      int x = 1265;
+      int x = 1250;
       int arm_change = x - arm_cur;
       //      int temp = (0.26 * float(arm_change));
       //      temp += + gripper_cur;

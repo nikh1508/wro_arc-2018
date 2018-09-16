@@ -46,7 +46,7 @@ void orange_dblue() { //orange seq---dblue
   delay(100);
   sideways(1, 600, 270);
   delay(100);
-  int x = 1265;
+  int x = 1250;
   int arm_change = x - arm_cur;
   //      int temp = (0.26 * float(arm_change));
   //      temp += + gripper_cur;
@@ -54,7 +54,7 @@ void orange_dblue() { //orange seq---dblue
   delay(100);
   move_encoder_only(1, 200, 270);
   delay(100);
-  sideways(1, 100, 270);
+  sideways(1, 70, 270);
   delay(100);
   gripper.detach();
   detached = true;
@@ -81,7 +81,7 @@ void red__orange_dblue() { //ORANGE-SEQ -- RED //D_BLUE-SEQ -- RED
   delay(100);
   //      move_encoder_only(1, 200, 0);
   //      delay(100);
-  int x = 1265;
+  int x = 1250;
   int arm_change = x - arm_cur;
   //      int temp = (0.26 * float(arm_change));
   //      temp += + gripper_cur;
@@ -118,7 +118,7 @@ void green__orange_dblue() {
   delay(100);
   sideways(1, 180, 270);
   delay(100);
-  int x = 1265;
+  int x = 1250;
   int arm_change = x - arm_cur;
   //      int temp = (0.26 * float(arm_change));
   //      temp += + gripper_cur;
