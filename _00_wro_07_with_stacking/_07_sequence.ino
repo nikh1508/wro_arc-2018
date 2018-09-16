@@ -154,6 +154,24 @@ void sequnece() {
         motion++;
         break;
       }
+    case (50): {
+        digitalWrite(sqc_pin, LOW);
+        reset_feedback();
+        dump_error(800, 800, 90.0);
+        return_base();
+        stop();
+        ch='s';
+        motion++;
+        break;
+      }
+      /////
+      case(60):{
+        digitalWrite(sqc_pin, LOW);
+        reset_feedback();
+        delivery_clamp();
+        motion++;
+        break;
+        }
     //
     case (0): {
         stop();
