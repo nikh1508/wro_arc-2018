@@ -39,7 +39,7 @@ void reset_gripper() {
 /////////////////////
 void fuse(int arm, int gripper, int time) {
   //  Serial.println(time);
-  if (detached) {
+  if (detached && gripper != -1) {
     detached = false;
     ::gripper.attach(grip_pin, 750, 2250);
     ::arm.attach(arm_pin, 750, 2250);
