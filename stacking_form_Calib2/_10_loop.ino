@@ -495,6 +495,31 @@ void loop() {
       delay(100);
       move_encoder_only(0, 2500, 0);
     }
+
+    else if (ch == '^') { //ORANGE-SEQ -- TOP-BLUE
+      fuse(2250, 1100, 600);
+      delay(100);
+      dump_error(600, 600, 0);
+      delay(100);
+      move_encoder_only(1, FWD_CONST, 0);
+      delay(100);
+      dump_error(400, 400, 0, 1);
+      delay(100);
+      fuse(2250, 1700, 800);
+      delay(100);
+      move_encoder_only(1, 200, 0);
+      delay(100);
+      sideways(1, 300, 0);
+      delay(100);
+      fuse(2000, 1700, 800);
+      delay(100);
+      move_encoder_only(1, 100, 0);
+      delay(100);
+      gripper.detach();
+      detached = true;
+      delay(100);
+            move_encoder_only(0, 2500, 0);
+    }
   }
   changeAngle();
 }

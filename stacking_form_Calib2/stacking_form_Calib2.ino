@@ -7,7 +7,7 @@ Servo arm;
 Servo camera;
 /////
 void pid_sideways(double angle, int dir = 1);
-void fuse(int arm, int gripper, int time, int gripper_flag = 0);
+//void fuse(int arm, int gripper, int time, int gripper_flag = 0);
 void dump_error(int enc0 = 400, int enc1 = 400, double angle = 270.0, int area = 0);
 int gripper_cur = GRIPPER_INIT , arm_cur = ARM_INIT;            //Current values of Servos in micro-seconds
 int arm_last = ARM_INIT;          //Initial values of servos in micro-seconds
