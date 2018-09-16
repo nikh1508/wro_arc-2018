@@ -5,8 +5,10 @@
 #define FWD_CONST 2400
 Servo gripper;
 Servo arm;
+
 Servo camera;
 /////
+void sideways(int dir, int data, double angle, bool timeOut_enabled = false);
 void dump_error(int enc0 = 800, int enc1 = 800, double angle = 270.0, int area = 0);
 int gripper_cur = GRIPPER_INIT , arm_cur = ARM_INIT;            //Current values of Servos in micro-seconds
 int arm_last = ARM_INIT;          //Initial values of servos in micro-seconds
