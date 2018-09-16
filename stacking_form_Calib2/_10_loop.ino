@@ -453,6 +453,48 @@ void loop() {
       delay(100);
       move_encoder_only(0, 2500, 0);
     }
+    else if (ch == '%') { //ORANGE-SEQ -- 2ND_YELLOW
+      fuse(2100, 1100, 600);
+      delay(100);
+      dump_error(600, 600, 0);
+      delay(100);
+      move_encoder_only(1, FWD_CONST, 0);
+      delay(100);
+      dump_error(400, 400, 0, 1);
+      delay(100);
+      sideways(1, 100, 0);
+      delay(100);
+      fuse(2100, 1500, 800);
+      delay(100);
+      move_encoder_only(1, 200, 0);
+      delay(100);
+      sideways(0, 100, 0);
+      delay(100);
+      sideways(1, 750, 0);
+      delay(100);
+      sideways(0, 200, 0);
+      delay(100);
+      fuse(1900, 1500, 800);
+      delay(100);
+      sideways(1, 100, 0);
+      delay(100);
+      sideways(0, 100, 0);
+      delay(100);
+      fuse(1700, 1500, 800);
+      delay(100);
+      move_encoder_only(1, 200, 0);
+      delay(100);
+      move_encoder_only(0, 200, 0);
+      delay(100);
+      //      sideways(1, 200, 0);
+      //      delay(100);
+      gripper.detach();
+      detached = true;
+      delay(100);
+      fuse(1500, -1, 800);
+      delay(100);
+      move_encoder_only(0, 2500, 0);
+    }
   }
   changeAngle();
 }
