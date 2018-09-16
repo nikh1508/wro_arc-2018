@@ -207,6 +207,7 @@ void right_value() {
 //////////////////////////////
 //////////////////////////////
 void clamp(int data, int d_angle) {
+  reset_gripper();
   digitalWrite(m[0].a, HIGH);
   digitalWrite(m[0].b, LOW);
   //1///
@@ -242,8 +243,8 @@ void clamp(int data, int d_angle) {
       digitalWrite(b_l, HIGH);
       analogWrite(pwm_l, 210);
       stop();
-      fuse(1300, 2120, 600);
-      fuse(1100, 2110, 300);
+      fuse(1350, 2090, 600);
+      fuse(1100, 2080, 300);
       digitalWrite(a_l, LOW);
       digitalWrite(b_l, LOW);
       analogWrite(pwm_l, 0);

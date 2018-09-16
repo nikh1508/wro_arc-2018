@@ -2,7 +2,7 @@ void blue_orange() {
   dump_error(400, 400, 270.0);//
   delay(100);
   fuse(1700, 1100, 600);
-  move_encoder_only(1, 2800, 270.0);//
+  move_encoder_only(1, 2400, 270.0);//
   delay(100);
   fuse(1700, 1640, 800);
   delay(100);
@@ -28,7 +28,7 @@ void blue_red() {
   delay(100);
   dump_error(400, 400, 270.0);
   delay(100);
-  move_encoder_only(1, 2800, 270.0);
+  move_encoder_only(1, 2400, 270.0);
   delay(100);
   dump_error(400, 400, 270.0, 1);
   delay(100);
@@ -59,7 +59,7 @@ void blue_dblue____yellow_dblue() {
   delay(100);
   dump_error(400, 400, 270.0);
   delay(100);
-  move_encoder_only(1, 2800, 270.0);
+  move_encoder_only(1, 2400, 270.0);
   delay(100);
   dump_error(400, 400, 270.0, 1);
   delay(100);
@@ -92,7 +92,7 @@ void yellow_orange() {
   delay(100);
   dump_error(400, 400, 270.0);
   delay(100);
-  move_encoder_only(1, 2800, 270.0);
+  move_encoder_only(1, 2400, 270.0);
   delay(100);
   dump_error(400, 400, 270.0, 1);
   delay(100);
@@ -123,7 +123,7 @@ void green_red____orange_dblue() {
   delay(100);
   dump_error(400, 400, 270.0);
   delay(100);
-  move_encoder_only(1, 2800, 270.0);
+  move_encoder_only(1, 2400, 270.0);
   delay(100);
   dump_error(400, 400, 270.0, 1);
   delay(100);
@@ -158,7 +158,7 @@ void green_blue_left() {
   delay(100);
   dump_error(400, 400, 270.0);
   delay(100);
-  move_encoder_only(1, 2800, 270.0);
+  move_encoder_only(1, 2400, 270.0);
   delay(100);
   dump_error(400, 400, 270.0, 1);
   delay(100);
@@ -185,7 +185,7 @@ void green_blue_right() {
   delay(100);
   dump_error(400, 400, 270.0);
   delay(100);
-  move_encoder_only(1, 2800, 270.0);
+  move_encoder_only(1, 2400, 270.0);
   delay(100);
   dump_error(400, 400, 270.0, 1);
   delay(100);
@@ -210,7 +210,7 @@ void red_green____dblue_orange() {
   delay(100);
   dump_error(400, 400, 270.0);
   delay(100);
-  move_encoder_only(1, 2800, 270.0);
+  move_encoder_only(1, 2400, 270.0);
   delay(100);
   dump_error(400, 400, 270.0, 1);
   delay(100);
@@ -241,7 +241,7 @@ void orange_red____dblue_red() {
   delay(100);
   dump_error(400, 400, 270.0);
   delay(100);
-  move_encoder_only(1, 2800, 270.0);
+  move_encoder_only(1, 2400, 270.0);
   delay(100);
   dump_error(400, 400, 270.0, 1);
   delay(100);
@@ -274,7 +274,7 @@ void orange_green____dblue_green() {
   delay(100);
   dump_error(400, 400, 270.0);
   delay(100);
-  move_encoder_only(1, 2800, 270.0);
+  move_encoder_only(1, 2400, 270.0);
   delay(100);
   dump_error(400, 400, 270.0, 1);
   delay(100);

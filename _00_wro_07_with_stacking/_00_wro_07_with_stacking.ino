@@ -6,7 +6,7 @@ Servo gripper;
 Servo arm;
 Servo camera;
 /////
-void dump_error(int enc0 = 400, int enc1 = 400, double angle = 270.0, int area = 0);
+void dump_error(int enc0 = 800, int enc1 = 800, double angle = 270.0, int area = 0);
 int gripper_cur = GRIPPER_INIT , arm_cur = ARM_INIT;            //Current values of Servos in micro-seconds
 int arm_last = ARM_INIT;          //Initial values of servos in micro-seconds
 int gripper_last = GRIPPER_INIT;

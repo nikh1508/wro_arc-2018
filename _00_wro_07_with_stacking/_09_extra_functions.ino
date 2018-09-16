@@ -1,4 +1,4 @@
-void dump_error(int enc0 = 400, int enc1 = 400, double angle = 270.0, int area = 0) {
+void dump_error(int enc0 = 800, int enc1 = 800, double angle = 270.0, int area = 0) {
   reset_feedback();
   if (area == 0) {
     /////---->backward till encoder

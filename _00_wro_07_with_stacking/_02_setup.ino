@@ -1,7 +1,7 @@
 void setup() {
   Serial.begin(9600);
-  Wire.begin(adr_mega);
-  Wire.onReceive(i2c_recieve);
+  Wire.begin();
+  //  Wire.onReceive(i2c_recieve);
   assign_pins();
   line_compare();
   declaration();
@@ -24,4 +24,5 @@ void setup() {
   retract();
   base_start();////////////////////////////---------------->>>>>comment this to test in loop
   reset_feedback();
+  Serial1.begin(9600);
 }

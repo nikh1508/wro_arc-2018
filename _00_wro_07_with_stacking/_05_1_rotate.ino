@@ -69,7 +69,6 @@ void rotateTo(double angle, int dir, int ROT_SPEED = 130) {
     rotationSpeed = sin( (abs1(diff(angle, yaw)) / divisor) / 180.0 * 3.14) * initialSpeed;
     //    delay(2);
   }
-
   stop();
   ch = 's';
   //  rotate_desired = angle;
