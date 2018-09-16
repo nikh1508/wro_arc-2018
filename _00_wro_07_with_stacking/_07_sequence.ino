@@ -147,6 +147,13 @@ void sequnece() {
         motion++;
         break;
       }
+    case (100): {
+        digitalWrite(sqc_pin, LOW);
+        reset_feedback();
+        dump_error(800, 800, 0.0, 1);
+        motion++;
+        break;
+      }
     //
     case (0): {
         stop();
