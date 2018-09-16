@@ -1,4 +1,4 @@
-#define FWD_CONST 2400
+#define FWD_CONST 2350
 
 void loop() {
   if (Serial.available()) {
@@ -474,7 +474,7 @@ void loop() {
       delay(100);
       sideways(0, 200, 0);
       delay(100);
-      fuse(1900, 1500, 800);
+      fuse(1900, 1700, 800);
       delay(100);
       sideways(1, 100, 0);
       delay(100);
@@ -493,6 +493,7 @@ void loop() {
       delay(100);
       fuse(1500, -1, 800);
       delay(100);
+      move_encoder_only(1, 300, 0);
       move_encoder_only(0, 2500, 0);
     }
 
