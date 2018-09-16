@@ -169,8 +169,8 @@ void assign_sequence() {
   direction[10][4] = 0;
   //
   steps[10][1] = 4000;
-  steps[10][2] = 1300;
-  steps[10][3] = -1300;
+  steps[10][2] = 1100;
+  steps[10][3] = -1100;
   //
   rotate_direction[10][0] = CW;
   /////////////////////////////////
