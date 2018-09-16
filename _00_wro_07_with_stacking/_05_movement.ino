@@ -72,6 +72,8 @@ void move_encoder_only(int n, int data, int d_angle) {
   encoder_data0();
   int last_encoder_count = encoder_0;
   ch = '\0';
+  long long timeOut_prev = millis();
+  int timeOut_Enc0 = encoder_0;
   if (n == 1) { //forward
     Serial.println("Going Forward " + String(data) + " counts.");
     digitalWrite(m[0].a, HIGH);
@@ -93,6 +95,15 @@ void move_encoder_only(int n, int data, int d_angle) {
       false_pid(d_angle, 1);
       encoder_data0();
       //      Serial.println(encoder_0);
+      if (millis() - timeOut_prev > 300) { ////////////edited
+        timeOut_prev = millis(); ////////////edited
+        if (timeOut_Enc0 == encoder_0) { ////////////edited
+          stop();////////////edited
+          ch = 's'; ////////////edited
+          Serial.println("FWD TIMEOUT");
+        }////////////edited
+        timeOut_Enc0 = encoder_0;
+      }////////////edited
       if (abs(encoder_0 - last_encoder_count) >= data) {
         Serial.println("ENC0 :: " + String(encoder_0));
         stop();
@@ -141,6 +152,8 @@ void sideways(int dir, int data, double angle) {
   encoder_data1();
   int last_encoder_count0 = encoder_0;
   int last_encoder_count1 = encoder_1;
+  long long timeOut_prev = millis();
+  int timeOut_Enc1 = encoder_1;
   ch = '\0';
   if (dir == 1) {//right
     Serial.println("Going Right " + String(data) + " counts.");
@@ -154,6 +167,16 @@ void sideways(int dir, int data, double angle) {
     pid_sideways(angle, dir);
     encoder_data1();
     //    Serial.println(encoder_1);
+    if (millis() - timeOut_prev > 30) { ////////////edited
+      timeOut_prev = millis(); ////////////edited
+      if (timeOut_Enc1 == encoder_1) { ////////////edited
+        stop();////////////edited
+        ch = 's'; ////////////edited
+        Serial.println("SIDEWAYS TIMEOUT");
+      }////////////edited
+      timeOut_Enc1 = encoder_1;
+    }////////////edited
+    //
     if (abs(encoder_1 - last_encoder_count1) >= data) {
       Serial.println("ENC1 :: " + String(encoder_1));
       encoder_data0();

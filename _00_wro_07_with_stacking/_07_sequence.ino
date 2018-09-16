@@ -61,8 +61,7 @@ void sequnece() {
     case (8): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        blue_orange();
-        changeAngle();
+        red__orange_dblue();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -71,9 +70,8 @@ void sequnece() {
     case (9): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        blue_red();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
+        orange_dblue();
+        dump_error(800, 1100, 270.0, 0);
         motion++;
         break;
       }
@@ -81,9 +79,8 @@ void sequnece() {
     case (10): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        blue_dblue____yellow_dblue();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
+        green__orange_dblue();
+        dump_error(800, 1100, 270.0, 0);
         motion++;
         break;
       }
@@ -91,8 +88,7 @@ void sequnece() {
     case (11): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        yellow_orange();
-        changeAngle();
+        second_red___orange_dblue();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -101,9 +97,8 @@ void sequnece() {
     case (12): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        blue_dblue____yellow_dblue();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
+        second_green__orange_dblue();
+        dump_error(800, 1100, 270.0, 0);
         motion++;
         break;
       }
@@ -111,8 +106,7 @@ void sequnece() {
     case (13): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        orange_red____dblue_red();
-        changeAngle();
+        dblue_orange();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -121,8 +115,7 @@ void sequnece() {
     case (14): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        green_red____orange_dblue();
-        changeAngle();
+        red__orange_dblue();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -131,9 +124,8 @@ void sequnece() {
     case (15): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        orange_green____dblue_green();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
+        green__orange_dblue();
+        dump_error(800, 1100, 270.0, 0);
         motion++;
         break;
       }
@@ -141,8 +133,7 @@ void sequnece() {
     case (16): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        red_green____dblue_orange();
-        changeAngle();
+        second_red___orange_dblue();
         dump_error(800, 800, 270.0, 0);
         motion++;
         break;
@@ -151,79 +142,8 @@ void sequnece() {
     case (17): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        orange_red____dblue_red();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
-        motion++;
-        break;
-      }
-    //
-    case (18): {
-        digitalWrite(sqc_pin, LOW);
-        reset_feedback();
-        orange_green____dblue_green();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
-        motion++;
-        break;
-      }
-    //
-    case (19): {
-        digitalWrite(sqc_pin, LOW);
-        reset_feedback();
-        green_red____orange_dblue();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
-        motion++;
-        break;
-      }
-    //
-    case (20): {
-        digitalWrite(sqc_pin, LOW);
-        reset_feedback();
-        green_blue_left();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
-        motion++;
-        break;
-      }
-    //
-    case (21): {
-        digitalWrite(sqc_pin, LOW);
-        reset_feedback();
-        green_blue_right();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
-        motion++;
-        break;
-      }
-    //
-    case (22): {
-        digitalWrite(sqc_pin, LOW);
-        reset_feedback();
-        red_green____dblue_orange();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
-        motion++;
-        break;
-      }
-    //
-    case (23): {
-        digitalWrite(sqc_pin, LOW);
-        reset_feedback();
-        green_blue_left();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
-        motion++;
-        break;
-      }
-    //
-    case (24): {
-        digitalWrite(sqc_pin, LOW);
-        reset_feedback();
-        green_blue_right();
-        changeAngle();
-        dump_error(800, 800, 270.0, 0);
+        second_green__orange_dblue();
+        dump_error(800, 1100, 270.0, 0);
         motion++;
         break;
       }
