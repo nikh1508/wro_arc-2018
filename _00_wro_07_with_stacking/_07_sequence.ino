@@ -138,7 +138,7 @@ void sequnece() {
         motion++;
         break;
       }
-    //
+    //dump_error(800, 800, 180.0, 0);
     case (17): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
@@ -157,7 +157,7 @@ void sequnece() {
     case (50): {
         digitalWrite(sqc_pin, LOW);
         reset_feedback();
-        dump_error(800, 800, 90.0);
+//        dump_error(800, 800, 90.0);
         return_base();
         stop();
         ch='s';

@@ -1,4 +1,9 @@
 void loop() {
+//  reset_gripper();
+//  while(!Serial.available());
+//  char ch = Serial.read();
+//  green__orange_dblue();
+//  while(1);
   sequnece();
   servo_camera();
   if (Serial1.available()) {

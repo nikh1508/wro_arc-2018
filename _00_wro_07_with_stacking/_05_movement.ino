@@ -266,7 +266,7 @@ void clamp(int data, int d_angle) {
       digitalWrite(b_l, HIGH);
       analogWrite(pwm_l, 210);
       stop();
-      fuse(1350, 2110, 600);
+      fuse(1350, 2100, 600);
       fuse(1100, 2100, 300);
       digitalWrite(a_l, LOW);
       digitalWrite(b_l, LOW);
@@ -279,9 +279,15 @@ void clamp(int data, int d_angle) {
 /////////////////////////////////
 /////////////////////////////////
 void return_base() {
-  move_encoder_only(1, 9000, 90.0);
+  fuse(750, 750, 800);
+  arm.detach();
+  gripper.detach();
+  move_encoder_only(1, 15000, 90.0);
   delay(200);
-  sideways(1, 3000, 90.0);
+  sideways(1, 4800, 90.0,true);
+  move_encoder_only(1, 3000, 90.0);
+  while(1);
+  
 }
 //////////////////////
 void delivery_clamp() {
