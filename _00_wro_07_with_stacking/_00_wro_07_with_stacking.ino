@@ -2,7 +2,7 @@
 #include<PID_v1.h>
 #define ARM_INIT 1700
 #define GRIPPER_INIT 1500
-#define FWD_CONST 2400
+#define FWD_CONST 2350
 Servo gripper;
 Servo arm;
 
